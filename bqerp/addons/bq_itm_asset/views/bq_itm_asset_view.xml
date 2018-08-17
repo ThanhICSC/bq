@@ -1,0 +1,640 @@
+<odoo>
+    <data>
+        <menuitem id="asset_management_menu" name="Asset" parent="bq_itm_base.bq_itm_menu" sequence="20"/>
+        <menuitem id="asset_management_setting_menu" name="Asset Settings" parent="bq_itm_base.setting_menu" sequence="20"/>
+
+        <record id="asset_asset_view_tree" model="ir.ui.view">
+            <field name="name">asset.asset.tree</field>
+            <field name="model">bq.itm.asset.asset</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="asset_no"/>
+                    <field name="finance_asset_no"/>
+                    <field name="category_id"/>
+                    <field name="brand_id"/>
+                    <field name="model_no"/>
+                    <field name="location_id"/>
+                    <field name="employee_id"/>
+                    <field name="department_id"/>
+                    <field name="use"/>
+                    <field name="network"/>
+                    <field name="mac_addresses"/>
+                    <field name="idle"/>
+                </tree>
+            </field>
+        </record>
+        <record id="asset_asset_view_form" model="ir.ui.view">
+            <field name="name">asset.asset.form</field>
+            <field name="model">bq.itm.asset.asset</field>
+            <field name="arch" type="xml">
+                <form string="Asset">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="asset_no" class="oe_edit_only"/>
+                            <h1>
+                                <field name="asset_no" placeholder="ITA Asset Number"/>
+                            </h1>
+                        </div>
+                        <group name="group_top">
+                            <group>
+                                <field name="category_id"/>
+                                <field name="location_id"/>
+                                <field name="employee_id"/>
+                                <field name="department_id"/>
+                                <field name="assign_date"/>
+                                <field name="use"/>
+                                <field name="network"/>
+                                <field name="mac_addresses"/>
+                            </group>
+                            <group>
+                                <field name="idle"/>
+                                <field name="repair_place"/>
+                                <field name="finance_asset_no"/>
+                                <field name="start_date"/>
+                                <field name="image" widget="image"/>
+                                <field name="description"/>
+                                <field name="active"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Product Information">
+                                <group>
+                                    <group>
+                                        <field name="brand_id"/>
+                                        <field name="model_no"/>
+                                        <field name="serial_no"/>
+                                        <field name="attribute_ids" widget="many2many_tags" domain="[('category_id','=', category_id)]"/>
+                                    </group>
+                                    <group>
+                                        <field name="po_no"/>
+                                        <field name="cost"/>
+                                        <field name="warranty"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Count Information">
+                                <field name="count_item_ids" readonly="1"/>
+                            </page>
+                            <page string="Cancellation Information">
+                                <group>
+                                    <group>
+                                        <field name="cancel_date"/>
+                                        <field name="cancel_type"/>
+                                    </group>
+                                    <group>
+                                        <field name="cancel_description"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                        <group name="group_log_access">
+                            <group>
+                                <field name="create_date" readonly="1"/>
+                                <field name="create_uid" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="write_date" readonly="1"/>
+                                <field name="write_uid" readonly="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="asset_asset_view_search" model="ir.ui.view">
+            <field name="name">asset.asset.search</field>
+            <field name="model">bq.itm.asset.asset</field>
+            <field name="arch" type="xml">
+                <search string="Assets">
+                    <field name="asset_no" string="Asset" filter_domain="['|', ('asset_no','ilike',self), '|', ('model_no','ilike',self), '|', ('employee_id','ilike',self), '|', ('finance_asset_no','ilike',self), ('brand_id','ilike',self)]"/>
+                    <field name="employee_id" string="Keeper"/>
+                    <field name="finance_asset_no"/>
+                    <field name="mac_addresses"/>
+                    <filter string="My Assets" name="myassets" domain="[('employee_id.user_id','=',uid)]"/>
+                    <separator/>
+                    <filter string="Office Use" name="officeuse" domain="['|', ('use','=','personal office'), ('use','=','shared office')]"/>
+                    <separator/>
+                    <filter string="Non-Office Use" name="nonofficeuse" domain="[('use','!=','personal office'), ('use','!=','shared office')]"/>
+                    <separator/>
+                    <filter string="Idle" name="idle" domain="[('idle','=',True)]"/>
+                    <separator/>
+                    <filter name="updated_last_24h" string="Modified in Last 24h" domain="[('write_date','&gt;', (context_today() - datetime.timedelta(days=1)).strftime('%%Y-%%m-%%d') )]"/>
+                    <separator/>
+                    <filter name="updated_last_week" string="Modified in Last Week" domain="[('write_date','&gt;', (context_today() - datetime.timedelta(days=7)).strftime('%%Y-%%m-%%d') )]"/>
+                    <separator/>
+                    <filter name="updated_last_month" string="Modified in Last Month" domain="[('write_date','&gt;', (context_today() - relativedelta(months=1)).strftime('%%Y-%%m-%%d') )]"/>
+                    <separator/>
+                    <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Category" domain="[]" context="{'group_by':'category_id'}"/>
+                        <filter string="Department" domain="[]" context="{'group_by':'department_id'}"/>
+                        <filter string="Keeper" domain="[]" context="{'group_by':'employee_id'}"/>
+                        <filter string="Location" domain="[]" context="{'group_by':'location_id'}"/>
+                        <filter string="Use" domain="[]" context="{'group_by':'use'}"/>
+                        <filter string="Repair Place" domain="[]" context="{'group_by':'repair_place'}"/>
+                    </group>
+                </search>
+             </field>
+        </record>
+        <record id="asset_asset_view_graph" model="ir.ui.view">
+            <field name="name">asset.asset.graph</field>
+            <field name="model">bq.itm.asset.asset</field>
+            <field name="arch" type="xml">
+                <graph type="bar" stacked="False" string="Assets">
+                    <field name="category_id"/>
+                    <field name="department_id"/>
+                </graph>
+             </field>
+        </record>
+        <record id="asset_asset_view_pivot" model="ir.ui.view">
+            <field name="name">asset.asset.pivot</field>
+            <field name="model">bq.itm.asset.asset</field>
+            <field name="arch" type="xml">
+                <pivot string="Assets">
+                    <field name="department_id" type="row" />
+                    <field name="category_id" type="col" />
+                </pivot>
+            </field>
+        </record>
+        <record id="asset_asset_action" model="ir.actions.act_window">
+            <field name="name">Assets</field>
+            <field name="res_model">bq.itm.asset.asset</field>
+            <field name="view_mode">tree,form,pivot,graph</field>
+        </record>
+
+        <menuitem id="asset_asset_menu" name="Assets"
+                  parent="asset_management_menu" action="asset_asset_action"
+                  sequence="10"/>
+
+        <record id="asset_keeper_view_tree" model="ir.ui.view">
+            <field name="name">asset.keeper.tree</field>
+            <field name="model">bq.base.employee</field>
+            <field name="priority">99999</field>
+            <field name="arch" type="xml">
+                <tree string="Keepers" create="false" edit="false" delete="false">
+                    <field name="employee_no"/>
+                    <field name="name"/>
+                    <field name="phone"/>
+                    <field name="mobile_phone"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                    <field name="department_id"/>
+                    <field name="bq_itm_asset_keeping_code"/>
+                    <field name="bq_itm_asset_signed_keeping_code"/>
+                    <field name="bq_itm_asset_keeping_sign_needed"/>
+                    <field name="bq_itm_asset_asset_qty"/>
+                    <button name="%(asset_asset_action)d" type="action" icon="fa-list"
+                            context="{'search_default_employee_id': active_id, 'default_employee_id': active_id}"/>
+                </tree>
+            </field>
+        </record>
+        <record id="asset_keeper_view_search" model="ir.ui.view">
+            <field name="name">Keepers</field>
+            <field name="model">bq.base.employee</field>
+            <field name="priority">99999</field>
+            <field name="arch" type="xml">
+                <search string="Keepers">
+                    <field name="complete_name"/>
+                    <field name="department_id"/>
+                    <filter string="Keeping Sign Needed" name="keeping_sign_needed"
+                            domain="[('bq_itm_asset_keeping_sign_needed','=',True)]"/>
+                    <separator/>
+                    <group expand="0" string="Group By">
+                        <filter string="Department" domain="[]" context="{'group_by':'department_id'}"/>
+                        <filter string="Company" domain="[]" context="{'group_by':'company_id'}"
+                                groups="base.group_multi_company"/>
+                    </group>
+                </search>
+             </field>
+        </record>
+        <record id="asset_keeper_action" model="ir.actions.act_window">
+            <field name="name">Keepers</field>
+            <field name="res_model">bq.base.employee</field>
+            <field name="view_mode">tree</field>
+            <field name="context">{}</field>
+            <field name="domain">[('bq_itm_asset_asset_ids','!=',False)]</field>
+            <field name="search_view_id" ref="asset_keeper_view_search"/>
+            <field name="view_id" ref="asset_keeper_view_tree"/>
+        </record>
+
+        <menuitem id="asset_keeper_menu" name="Keepers"
+                  parent="asset_management_menu" action="asset_keeper_action"
+                  sequence="15"/>
+        
+        <record id="asset_category_view_tree" model="ir.ui.view">
+            <field name="name">asset.category.tree</field>
+            <field name="model">bq.itm.asset.category</field>
+            <field name="arch" type="xml">
+                <tree string="Asset Categories">
+                    <field name='sequence' widget='handle'/>
+                    <field name="name"/>
+                    <field name="asset_qty"/>
+                </tree>
+            </field>
+        </record>
+        <record id="asset_category_view_form" model="ir.ui.view">
+            <field name="name">asset.category.form</field>
+            <field name="model">bq.itm.asset.category</field>
+            <field name="arch" type="xml">
+                <form string="Asset Category">
+                    <sheet>
+                        <group name="group_top">
+                            <group>
+                                <field name="name"/>
+                                <field name="sequence"/>
+                            </group>
+                            <group>
+                                <field name="active"/>
+                            </group>
+                        </group>
+                        <group name="group_log_access">
+                            <group>
+                                <field name="create_date" readonly="1"/>
+                                <field name="create_uid" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="write_date" readonly="1"/>
+                                <field name="write_uid" readonly="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="asset_category_view_search" model="ir.ui.view">
+            <field name="name">asset.category.search</field>
+            <field name="model">bq.itm.asset.category</field>
+            <field name="arch" type="xml">
+                <search string="Categories">
+                    <field name="name"/>
+                    <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
+                </search>
+             </field>
+        </record>
+        <record id="asset_category_action" model="ir.actions.act_window">
+            <field name="name">Asset Categories</field>
+            <field name="res_model">bq.itm.asset.category</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="asset_category_menu" name="Asset Categories"
+                  parent="asset_management_setting_menu" action="asset_category_action"
+                  sequence="1"/>
+
+        <record id="asset_brand_view_tree" model="ir.ui.view">
+            <field name="name">asset.brand.tree</field>
+            <field name="model">bq.itm.asset.brand</field>
+            <field name="arch" type="xml">
+                <tree string="Asset Brands">
+                    <field name='sequence' widget='handle'/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="asset_brand_view_form" model="ir.ui.view">
+            <field name="name">asset.brand.form</field>
+            <field name="model">bq.itm.asset.brand</field>
+            <field name="arch" type="xml">
+                <form string="Asset Brand">
+                    <sheet>
+                        <group name="group_top">
+                            <group>
+                                <field name="name"/>
+                                <field name="sequence"/>
+                            </group>
+                            <group>
+                                <field name="active"/>
+                            </group>
+                        </group>
+                        <group name="group_log_access">
+                            <group>
+                                <field name="create_date" readonly="1"/>
+                                <field name="create_uid" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="write_date" readonly="1"/>
+                                <field name="write_uid" readonly="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="asset_brand_view_search" model="ir.ui.view">
+            <field name="name">asset.brand.search</field>
+            <field name="model">bq.itm.asset.brand</field>
+            <field name="arch" type="xml">
+                <search string="Brands">
+                    <field name="name"/>
+                    <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
+                </search>
+             </field>
+        </record>
+        <record id="asset_brand_action" model="ir.actions.act_window">
+            <field name="name">Asset Brands</field>
+            <field name="res_model">bq.itm.asset.brand</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="asset_brand_menu" name="Asset Brands"
+                  parent="asset_management_setting_menu" action="asset_brand_action"
+                  sequence="2"/>
+
+        <record id="asset_attribute_view_tree" model="ir.ui.view">
+            <field name="name">asset.attribute.tree</field>
+            <field name="model">bq.itm.asset.attribute</field>
+            <field name="arch" type="xml">
+                <tree string="Asset Attributes">
+                    <field name='sequence' widget='handle'/>
+                    <field name="name"/>
+                    <field name="value"/>
+                    <field name="category_id"/>
+                </tree>
+            </field>
+        </record>
+        <record id="asset_attribute_view_form" model="ir.ui.view">
+            <field name="name">asset.attribute.form</field>
+            <field name="model">bq.itm.asset.attribute</field>
+            <field name="arch" type="xml">
+                <form string="Asset Attribute">
+                    <sheet>
+                        <group name="group_top">
+                            <group>
+                                <field name="name"/>
+                                <field name="value"/>
+                                <field name="category_id"/>
+                            </group>
+                            <group>
+                                <field name="sequence"/>
+                                <field name="active"/>
+                            </group>
+                        </group>
+                        <group name="group_log_access">
+                            <group>
+                                <field name="create_date" readonly="1"/>
+                                <field name="create_uid" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="write_date" readonly="1"/>
+                                <field name="write_uid" readonly="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="asset_attribute_view_search" model="ir.ui.view">
+            <field name="name">asset.attribute.search</field>
+            <field name="model">bq.itm.asset.attribute</field>
+            <field name="arch" type="xml">
+                <search string="Attributes">
+                    <field name="name"/>
+                    <field name="value"/>
+                    <field name="category_id"/>
+                    <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
+                </search>
+             </field>
+        </record>
+        <record id="asset_attribute_action" model="ir.actions.act_window">
+            <field name="name">Asset Attributes</field>
+            <field name="res_model">bq.itm.asset.attribute</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="asset_attribute_menu" name="Asset Attributes"
+                  parent="asset_management_setting_menu" action="asset_attribute_action"
+                  sequence="3"/>
+
+        <record id="asset_location_view_tree" model="ir.ui.view">
+            <field name="name">asset.location.tree</field>
+            <field name="model">bq.itm.asset.location</field>
+            <field name="arch" type="xml">
+                <tree string="Asset Locations">
+                    <field name='sequence' widget='handle'/>
+                    <field name="complete_name"/>
+                    <field name="parent_id"/>
+                    <field name="name"/>
+                    <field name="asset_qty"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+        <record id="asset_location_view_form" model="ir.ui.view">
+            <field name="name">asset.location.form</field>
+            <field name="model">bq.itm.asset.location</field>
+            <field name="arch" type="xml">
+                <form string="Asset Location">
+                    <sheet>
+                        <group name="group_top">
+                            <group>
+                                <field name="name"/>
+                                <field name="parent_id"/>
+                                <field name="sequence"/>
+                            </group>
+                            <group>
+                                <field name="description"/>
+                                <field name="active"/>
+                            </group>
+                        </group>
+                        <group name="group_log_access">
+                            <group>
+                                <field name="create_date" readonly="1"/>
+                                <field name="create_uid" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="write_date" readonly="1"/>
+                                <field name="write_uid" readonly="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="asset_location_view_search" model="ir.ui.view">
+            <field name="name">asset.location.search</field>
+            <field name="model">bq.itm.asset.location</field>
+            <field name="arch" type="xml">
+                <search string="Locations">
+                    <field name="name"/>
+                    <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
+                </search>
+             </field>
+        </record>
+        <record id="asset_location_action" model="ir.actions.act_window">
+            <field name="name">Asset Locations</field>
+            <field name="res_model">bq.itm.asset.location</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="asset_location_menu" name="Asset Locations"
+                  parent="asset_management_setting_menu" action="asset_location_action"
+                  sequence="4"/>
+
+        <record id="asset_count_view_tree" model="ir.ui.view">
+            <field name="name">asset.count.tree</field>
+            <field name="model">bq.itm.asset.count</field>
+            <field name="arch" type="xml">
+                <tree string="Asset Counts">
+                    <field name="name"/>
+                    <field name="plan_date"/>
+                    <field name="state"/>
+                    <field name="item_qty"/>
+                </tree>
+            </field>
+        </record>
+        <record id="asset_count_view_form" model="ir.ui.view">
+            <field name="name">asset.count.form</field>
+            <field name="model">bq.itm.asset.count</field>
+            <field name="arch" type="xml">
+                <form string="Asset Count">
+                    <sheet>
+                        <group>
+                            <div class="oe_title">
+                                <label for="name" class="oe_edit_only"/>
+                                <h1>
+                                    <field name="name" placeholder="Asset Count Subject"/>
+                                </h1>
+                                <label for="plan_date" class="oe_edit_only"/>
+                                <field name="plan_date"/>
+                                <label for="state" class="oe_edit_only"/>
+                                <field name="state"/>
+                                <label for="description" class="oe_edit_only"/>
+                                <field name="description"/>
+                            </div>
+                        </group>
+                        <notebook>
+                            <page string="Count Items">
+                                <field name="item_ids"/>
+                            </page>
+                        </notebook>
+                        <group name="group_log_access">
+                            <group>
+                                <field name="create_date" readonly="1"/>
+                                <field name="create_uid" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="write_date" readonly="1"/>
+                                <field name="write_uid" readonly="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="asset_count_action" model="ir.actions.act_window">
+            <field name="name">Asset Counts</field>
+            <field name="res_model">bq.itm.asset.count</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="asset_count_menu" name="Asset Counts"
+                  parent="asset_management_menu" action="asset_count_action"
+                  sequence="20"/>
+
+        <record id="asset_count_item_view_tree" model="ir.ui.view">
+            <field name="name">asset.count.item.tree</field>
+            <field name="model">bq.itm.asset.count.item</field>
+            <field name="arch" type="xml">
+                <tree string="Asset Count Items">
+                    <field name="asset_id"/>
+                    <field name="state"/>
+                    <field name="employee_id"/>
+                    <field name="count_date"/>
+                </tree>
+            </field>
+        </record>
+        <record id="asset_count_item_view_form" model="ir.ui.view">
+            <field name="name">asset.count.item.form</field>
+            <field name="model">bq.itm.asset.count.item</field>
+            <field name="arch" type="xml">
+                <form string="Asset Count Item">
+                    <sheet>
+                        <group name="group_top">
+                            <group>
+                                <field name="asset_id"/>
+                                <field name="image" widget="image"/>
+                            </group>
+                            <group>
+                                <field name="state"/>
+                                <field name="employee_id"/>
+                                <field name="count_date"/>
+                                <field name="description"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="asset_count_wizard_view" model="ir.ui.view">
+            <field name="name">asset.count.wizard</field>
+            <field name="model">bq.itm.asset.count.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Asset Count Wizard">
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="plan_date"/>
+                        </group>
+                        <group>
+                            <field name="description"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Assets">
+                            <field name="asset_ids"/>
+                        </page>
+                    </notebook>
+                    <footer>
+                        <button type="object" name="create_count" string="Create" class="oe_highlight"/>
+                        <button special="cancel" string="Cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <act_window id="asset_count_wizard_action" name="Asset Count Wizard" src_model="bq.itm.asset.asset"
+                    res_model="bq.itm.asset.count.wizard" view_mode="form" target="new" multi="True" />
+
+        <record id="keeping_confirm_wizard_view" model="ir.ui.view">
+            <field name="name">bq.itm.asset.keeping.confirm.wizard</field>
+            <field name="model">bq.itm.asset.keeping.confirm.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Keeping Confirm Wizard">
+                    <group>
+                        <field name="signed_keeping_code"/>
+                    </group>
+                    <footer>
+                        <button type="object" name="confirm_keeping" string="Confirm" class="oe_highlight"/>
+                        <button type="object" name="remove_confirm_keeping" string="Remove"/>
+                        <button special="cancel" string="Close"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <act_window id="keeping_confirm_wizard_action" name="Keeping Confirm Wizard" src_model="bq.base.employee"
+                    res_model="bq.itm.asset.keeping.confirm.wizard" view_mode="form" target="new" multi="True"
+                    groups="group_itm_asset_clerk,group_itm_asset_manager,base.group_system"/>
+
+        <record id="asset_keeping_confirmation_form_paperformat" model="report.paperformat">
+            <field name="name">IT Assets Keeping Confirmation Form A4</field>
+            <field name="default" eval="True"/>
+            <field name="format">custom</field>
+            <field name="page_height">210</field>
+            <field name="page_width">297</field>
+            <field name="orientation">Landscape</field>
+
+            <field name="margin_top">15</field>
+            <field name="margin_bottom">15</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">10</field>
+            <field name="dpi">90</field>
+        </record>
+        <report id="bq_base_employee_bq_itm_asset_asset_report"
+                string="IT Assets Keeping Confirmation Form"
+                model="bq.base.employee"
+                report_type="qweb-pdf"
+                name="bq_itm_asset.employee_bq_itm_asset_asset_report_template"
+                file="bq_itm_asset.employee_bq_itm_asset_asset_report_template"
+                print_report_name="'IT Assets - %s' % (object.name)"/>
+    </data>
+</odoo>

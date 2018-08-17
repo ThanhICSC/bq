@@ -1,0 +1,843 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* bq_itm_asset
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-23 13:18+0000\n"
+"PO-Revision-Date: 2016-11-23 13:18+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_active
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_attribute_active
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_brand_active
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_category_active
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_location_active
+msgid "Active?"
+msgstr "有效？"
+
+#. module: bq_itm_asset
+#: sql_constraint:bq.itm.asset.asset:0
+msgid "Another asset already exists with this Asset No.!"
+msgstr "重复的资产编号！"
+
+#. module: bq_itm_asset
+#: sql_constraint:bq.itm.asset.brand:0
+msgid "Another brand already exists with this name!"
+msgstr "重复的品牌名称！"
+
+#. module: bq_itm_asset
+#: sql_constraint:bq.itm.asset.category:0
+msgid "Another category already exists with this name!"
+msgstr "重复的类别名称！"
+
+#. module: bq_itm_asset
+#: sql_constraint:bq.itm.asset.count.item:0
+msgid "Another item already exists with this Asset No.!"
+msgstr "重复的资产项！"
+
+#. module: bq_itm_asset
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_asset_view_search
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_attribute_view_search
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_brand_view_search
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_category_view_search
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_location_view_search
+msgid "Archived"
+msgstr "已归档"
+
+#. module: bq_itm_asset
+#: model:ir.model,name:bq_itm_asset.model_bq_itm_asset_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_count_item_asset_id
+#: model:ir.ui.menu,name:bq_itm_asset.asset_management_menu
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_asset_view_form
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_asset_view_search
+msgid "Asset"
+msgstr "资产"
+
+#. module: bq_itm_asset
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_attribute_view_form
+msgid "Asset Attribute"
+msgstr "资产属性"
+
+#. module: bq_itm_asset
+#: model:ir.actions.act_window,name:bq_itm_asset.asset_attribute_action
+#: model:ir.ui.menu,name:bq_itm_asset.asset_attribute_menu
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_attribute_view_tree
+msgid "Asset Attributes"
+msgstr "资产属性"
+
+#. module: bq_itm_asset
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_brand_view_form
+msgid "Asset Brand"
+msgstr "资产品牌"
+
+#. module: bq_itm_asset
+#: model:ir.actions.act_window,name:bq_itm_asset.asset_brand_action
+#: model:ir.ui.menu,name:bq_itm_asset.asset_brand_menu
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_brand_view_tree
+msgid "Asset Brands"
+msgstr "资产品牌"
+
+#. module: bq_itm_asset
+#: model:ir.actions.act_window,name:bq_itm_asset.asset_category_action
+#: model:ir.ui.menu,name:bq_itm_asset.asset_category_menu
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_category_view_tree
+msgid "Asset Categories"
+msgstr "资产类别"
+
+#. module: bq_itm_asset
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_category_view_form
+msgid "Asset Category"
+msgstr "资产类别"
+
+#. module: bq_itm_asset
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_count_view_form
+msgid "Asset Count"
+msgstr "资产盘点"
+
+#. module: bq_itm_asset
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_count_item_view_form
+msgid "Asset Count Item"
+msgstr "资产盘点项"
+
+#. module: bq_itm_asset
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_count_item_view_tree
+msgid "Asset Count Items"
+msgstr "资产盘点项"
+
+#. module: bq_itm_asset
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_count_view_form
+msgid "Asset Count Subject"
+msgstr "资产盘点主题"
+
+#. module: bq_itm_asset
+#: model:ir.actions.act_window,name:bq_itm_asset.asset_count_wizard_action
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_count_wizard_view
+msgid "Asset Count Wizard"
+msgstr "资产盘点向导"
+
+#. module: bq_itm_asset
+#: model:ir.actions.act_window,name:bq_itm_asset.asset_count_action
+#: model:ir.ui.menu,name:bq_itm_asset.asset_count_menu
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_count_view_tree
+msgid "Asset Counts"
+msgstr "资产盘点"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_image
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_count_item_image
+msgid "Asset Image"
+msgstr "资产照片"
+
+#. module: bq_itm_asset
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_location_view_form
+msgid "Asset Location"
+msgstr "资产位置"
+
+#. module: bq_itm_asset
+#: model:ir.actions.act_window,name:bq_itm_asset.asset_location_action
+#: model:ir.ui.menu,name:bq_itm_asset.asset_location_menu
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_location_view_tree
+msgid "Asset Locations"
+msgstr "资产位置"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_asset_no
+msgid "Asset No."
+msgstr "资产编号"
+
+#. module: bq_itm_asset
+#: code:addons/bq_itm_asset/models/models.py:187
+#, python-format
+msgid "Asset Number must have 9 chars!"
+msgstr "资产编号必须为9个字符！"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_base_employee_bq_itm_asset_asset_qty
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_category_asset_qty
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_location_asset_qty
+msgid "Asset Qty"
+msgstr "资产数量"
+
+#. module: bq_itm_asset
+#: model:ir.ui.menu,name:bq_itm_asset.asset_management_setting_menu
+msgid "Asset Settings"
+msgstr "资产设置"
+
+#. module: bq_itm_asset
+#: model:ir.actions.act_window,name:bq_itm_asset.asset_asset_action
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_brand_asset_ids
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_category_asset_ids
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_count_wizard_asset_ids
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_location_asset_ids
+#: model:ir.ui.menu,name:bq_itm_asset.asset_asset_menu
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_asset_view_graph
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_asset_view_pivot
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_asset_view_search
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_count_wizard_view
+msgid "Assets"
+msgstr "资产"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_assign_date
+msgid "Assigned Date"
+msgstr "派发日期"
+
+#. module: bq_itm_asset
+#: model:ir.model,name:bq_itm_asset.model_bq_itm_asset_attribute
+msgid "Attribute"
+msgstr "属性"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_mac_addresses
+msgid "Mac Addresses"
+msgstr "Mac地址"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_attribute_ids
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_category_attribute_ids
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_attribute_view_search
+msgid "Attributes"
+msgstr "属性"
+
+#. module: bq_itm_asset
+#: model:ir.model,name:bq_itm_asset.model_bq_itm_asset_brand
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_brand_id
+msgid "Brand"
+msgstr "品牌"
+
+#. module: bq_itm_asset
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_brand_view_search
+msgid "Brands"
+msgstr "品牌"
+
+#. module: bq_itm_asset
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_count_wizard_view
+msgid "Cancel"
+msgstr "取消"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_cancel_date
+msgid "Cancel Date"
+msgstr "注销日期"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_cancel_description
+msgid "Cancel Description"
+msgstr "注销说明"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_cancel_type
+msgid "Cancel Type"
+msgstr "注销类型"
+
+#. module: bq_itm_asset
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_asset_view_form
+msgid "Cancellation Information"
+msgstr "注销信息"
+
+#. module: bq_itm_asset
+#: selection:bq.itm.asset.count,state:0
+msgid "Cancelled"
+msgstr "已取消"
+
+#. module: bq_itm_asset
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_category_view_search
+msgid "Categories"
+msgstr "类别"
+
+#. module: bq_itm_asset
+#: model:ir.model,name:bq_itm_asset.model_bq_itm_asset_category
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_category_id
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_attribute_category_id
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_asset_view_search
+msgid "Category"
+msgstr "类别"
+
+#. module: bq_itm_asset
+#: model:ir.ui.view,arch_db:bq_itm_asset.keeping_confirm_wizard_view
+msgid "Close"
+msgstr "关闭"
+
+#. module: bq_itm_asset
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_keeper_view_search
+msgid "Company"
+msgstr "公司"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_location_complete_name
+msgid "Complete Name"
+msgstr "完整名称"
+
+#. module: bq_itm_asset
+#: model:ir.ui.view,arch_db:bq_itm_asset.keeping_confirm_wizard_view
+msgid "Confirm"
+msgstr "确认"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_cost
+msgid "Cost"
+msgstr "金额"
+
+#. module: bq_itm_asset
+#: model:ir.model,name:bq_itm_asset.model_bq_itm_asset_count
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_count_item_count_id
+msgid "Count"
+msgstr "盘点"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_count_item_count_date
+msgid "Count Date"
+msgstr "盘点日期"
+
+#. module: bq_itm_asset
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_asset_view_form
+msgid "Count Information"
+msgstr "盘点信息"
+
+#. module: bq_itm_asset
+#: model:ir.model,name:bq_itm_asset.model_bq_itm_asset_count_item
+msgid "Count Item"
+msgstr "盘点项"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_count_item_ids
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_count_view_form
+msgid "Count Items"
+msgstr "盘点项"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_count_item_ids
+msgid "Count Records"
+msgstr "盘点记录"
+
+#. module: bq_itm_asset
+#: model:ir.model,name:bq_itm_asset.model_bq_itm_asset_count_wizard
+msgid "Count Wizard"
+msgstr "盘点向导"
+
+#. module: bq_itm_asset
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_count_wizard_view
+msgid "Create"
+msgstr "创建"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_create_uid
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_attribute_create_uid
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_brand_create_uid
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_category_create_uid
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_count_create_uid
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_count_item_create_uid
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_count_wizard_create_uid
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_keeping_confirm_wizard_create_uid
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_location_create_uid
+msgid "Created by"
+msgstr "创建人"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_create_date
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_attribute_create_date
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_brand_create_date
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_category_create_date
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_count_create_date
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_count_item_create_date
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_count_wizard_create_date
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_keeping_confirm_wizard_create_date
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_location_create_date
+msgid "Created on"
+msgstr "创建时间"
+
+#. module: bq_itm_asset
+#: selection:bq.itm.asset.asset,cancel_type:0
+#: selection:bq.itm.asset.count.item,state:0
+msgid "Damaged"
+msgstr "损坏"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_department_id
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_asset_view_search
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_keeper_view_search
+msgid "Department"
+msgstr "部门"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_description
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_count_description
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_count_item_description
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_count_wizard_description
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_location_description
+msgid "Description"
+msgstr "说明"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_display_name
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_attribute_complete_name
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_attribute_display_name
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_brand_display_name
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_category_display_name
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_count_display_name
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_count_item_display_name
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_count_wizard_display_name
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_keeping_confirm_wizard_display_name
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_location_display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: bq_itm_asset
+#: selection:bq.itm.asset.count,state:0
+msgid "Done"
+msgstr "已完成"
+
+#. module: bq_itm_asset
+#: selection:bq.itm.asset.count,state:0
+msgid "Draft"
+msgstr "草稿"
+
+#. module: bq_itm_asset
+#: model:ir.model,name:bq_itm_asset.model_bq_base_employee
+msgid "Employee"
+msgstr "员工"
+
+#. module: bq_itm_asset
+#: code:addons/bq_itm_asset/models/models.py:374
+#: code:addons/bq_itm_asset/models/models.py:385
+#, python-format
+msgid "Employee No %s doesn't exist"
+msgstr "工号 %s 不存在"
+
+#. module: bq_itm_asset
+#: selection:bq.itm.asset.asset,network:0
+msgid "Equipment"
+msgstr "设备网"
+
+#. module: bq_itm_asset
+#: constraint:bq.itm.asset.location:0
+msgid "Error ! You cannot create recursive locations."
+msgstr "错误！ 不能创建相互包含的位置。"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_count_item_employee_id
+msgid "Executor"
+msgstr "执行者"
+
+#. module: bq_itm_asset
+#: selection:bq.itm.asset.asset,network:0
+msgid "External"
+msgstr "外网"
+
+#. module: bq_itm_asset
+#: selection:bq.itm.asset.asset,repair_place:0
+msgid "Field"
+msgstr "现场"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_finance_asset_no
+msgid "Finance Asset No."
+msgstr "财务资产编号"
+
+#. module: bq_itm_asset
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_asset_view_search
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_keeper_view_search
+msgid "Group By"
+msgstr "分组"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_id
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_attribute_id
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_brand_id
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_category_id
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_count_id
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_count_item_id
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_count_wizard_id
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_keeping_confirm_wizard_id
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_location_id
+msgid "ID"
+msgstr "ID"
+
+#. module: bq_itm_asset
+#: selection:bq.itm.asset.asset,repair_place:0
+msgid "IT"
+msgstr "IT"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_base_employee_bq_itm_asset_asset_ids
+msgid "IT Assets"
+msgstr "IT 资产"
+
+#. module: bq_itm_asset
+#: model:ir.actions.report.xml,name:bq_itm_asset.bq_base_employee_bq_itm_asset_asset_report
+msgid "IT Assets Keeping Confirmation Form"
+msgstr "IT资产保管确认单"
+
+#. module: bq_itm_asset
+#: selection:bq.itm.asset.asset,use:0
+msgid "IT Infrastructure"
+msgstr "IT 设施"
+
+#. module: bq_itm_asset
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_asset_view_form
+msgid "ITA Asset Number"
+msgstr "ITA 资产编号"
+
+#. module: bq_itm_asset
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_asset_view_search
+msgid "Idle"
+msgstr "闲置"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_idle
+msgid "Idle?"
+msgstr "闲置？"
+
+#. module: bq_itm_asset
+#: selection:bq.itm.asset.asset,network:0
+msgid "Internal"
+msgstr "内网"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_count_item_qty
+msgid "Item Qty"
+msgstr "项数"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_employee_id
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_asset_view_search
+msgid "Keeper"
+msgstr "保管人"
+
+#. module: bq_itm_asset
+#: model:ir.actions.act_window,name:bq_itm_asset.asset_keeper_action
+#: model:ir.ui.menu,name:bq_itm_asset.asset_keeper_menu
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_keeper_view_search
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_keeper_view_tree
+msgid "Keepers"
+msgstr "保管人"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_base_employee_bq_itm_asset_keeping_code
+msgid "Keeping Code"
+msgstr "资产保管编码"
+
+#. module: bq_itm_asset
+#: code:addons/bq_itm_asset/models/models.py:363
+#: model:ir.actions.act_window,name:bq_itm_asset.keeping_confirm_wizard_action
+#: model:ir.model,name:bq_itm_asset.model_bq_itm_asset_keeping_confirm_wizard
+#: model:ir.ui.view,arch_db:bq_itm_asset.keeping_confirm_wizard_view
+#, python-format
+msgid "Keeping Confirm Wizard"
+msgstr "资产确认向导"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_base_employee_bq_itm_asset_keeping_sign_needed
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_keeper_view_search
+msgid "Keeping Sign Needed"
+msgstr "需确认资产保管"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset___last_update
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_attribute___last_update
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_brand___last_update
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_category___last_update
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_count___last_update
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_count_item___last_update
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_count_wizard___last_update
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_keeping_confirm_wizard___last_update
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_location___last_update
+msgid "Last Modified on"
+msgstr "最后修改日"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_write_uid
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_attribute_write_uid
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_brand_write_uid
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_category_write_uid
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_count_item_write_uid
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_count_wizard_write_uid
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_count_write_uid
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_keeping_confirm_wizard_write_uid
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_location_write_uid
+msgid "Last Updated by"
+msgstr "最后更新人"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_write_date
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_attribute_write_date
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_brand_write_date
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_category_write_date
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_count_item_write_date
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_count_wizard_write_date
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_count_write_date
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_keeping_confirm_wizard_write_date
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_location_write_date
+msgid "Last Updated on"
+msgstr "最后更新时间"
+
+#. module: bq_itm_asset
+#: model:ir.model,name:bq_itm_asset.model_bq_itm_asset_location
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_location_id
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_asset_view_search
+msgid "Location"
+msgstr "位置"
+
+#. module: bq_itm_asset
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_location_view_search
+msgid "Locations"
+msgstr "位置"
+
+#. module: bq_itm_asset
+#: selection:bq.itm.asset.asset,cancel_type:0
+msgid "Lost"
+msgstr "丢失"
+
+#. module: bq_itm_asset
+#: selection:bq.itm.asset.count.item,state:0
+msgid "Missed"
+msgstr "未找到"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_model_no
+msgid "Model No."
+msgstr "型号"
+
+#. module: bq_itm_asset
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_asset_view_search
+msgid "Modified in Last 24h"
+msgstr "最近24小时更新"
+
+#. module: bq_itm_asset
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_asset_view_search
+msgid "Modified in Last Month"
+msgstr "最近1月更新"
+
+#. module: bq_itm_asset
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_asset_view_search
+msgid "Modified in Last Week"
+msgstr "最近1周更新"
+
+#. module: bq_itm_asset
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_asset_view_search
+msgid "My Assets"
+msgstr "我的资产"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_attribute_name
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_brand_name
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_category_name
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_location_name
+msgid "Name"
+msgstr "名称"
+
+#. module: bq_itm_asset
+#: selection:bq.itm.asset.asset,use:0
+msgid "National Confidential"
+msgstr "国家涉密"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_network
+msgid "Network"
+msgstr "网络"
+
+#. module: bq_itm_asset
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_asset_view_search
+msgid "Non-Office Use"
+msgstr "非办公用"
+
+#. module: bq_itm_asset
+#: selection:bq.itm.asset.count.item,state:0
+msgid "OK"
+msgstr "正常"
+
+#. module: bq_itm_asset
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_asset_view_search
+msgid "Office Use"
+msgstr "办公用"
+
+#. module: bq_itm_asset
+#: selection:bq.itm.asset.count,state:0
+msgid "Open"
+msgstr "开启"
+
+#. module: bq_itm_asset
+#: selection:bq.itm.asset.asset,cancel_type:0
+msgid "Other"
+msgstr "其它"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_po_no
+msgid "PO Number"
+msgstr "采购编号"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_location_parent_id
+msgid "Parent Location"
+msgstr "父位置"
+
+#. module: bq_itm_asset
+#: selection:bq.itm.asset.asset,use:0
+msgid "Personal Office"
+msgstr "个人办公"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_count_plan_date
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_count_wizard_plan_date
+msgid "Plan Date"
+msgstr "计划日期"
+
+#. module: bq_itm_asset
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_asset_view_form
+msgid "Product Information"
+msgstr "产品信息"
+
+#. module: bq_itm_asset
+#: selection:bq.itm.asset.asset,network:0
+msgid "Production"
+msgstr "生产网"
+
+#. module: bq_itm_asset
+#: selection:bq.itm.asset.asset,use:0
+msgid "Production Equipment"
+msgstr "生产设备"
+
+#. module: bq_itm_asset
+#: model:ir.ui.view,arch_db:bq_itm_asset.keeping_confirm_wizard_view
+msgid "Remove"
+msgstr "移除"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_repair_place
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_asset_view_search
+msgid "Repair Place"
+msgstr "维修地点"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_count_item_state
+msgid "Result"
+msgstr "结果"
+
+#. module: bq_itm_asset
+#: selection:bq.itm.asset.asset,cancel_type:0
+msgid "Retired"
+msgstr "退役"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_attribute_sequence
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_brand_sequence
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_category_sequence
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_location_sequence
+msgid "Sequence"
+msgstr "序号"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_serial_no
+msgid "Serial No."
+msgstr "序列号"
+
+#. module: bq_itm_asset
+#: selection:bq.itm.asset.asset,use:0
+msgid "Shared Office"
+msgstr "公用办公"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_base_employee_bq_itm_asset_signed_keeping_code
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_keeping_confirm_wizard_signed_keeping_code
+msgid "Signed Keeping Code"
+msgstr "已确认资产保管编码"
+
+#. module: bq_itm_asset
+#: selection:bq.itm.asset.asset,cancel_type:0
+msgid "Sold"
+msgstr "转售"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_start_date
+msgid "Start Date"
+msgstr "启用日期"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_count_state
+msgid "State"
+msgstr "状态"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_location_child_ids
+msgid "Sub Locations"
+msgstr "子位置"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_count_name
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_count_wizard_name
+msgid "Subject"
+msgstr "主题"
+
+#. module: bq_itm_asset
+#: selection:bq.itm.asset.asset,repair_place:0
+msgid "Supplier"
+msgstr "供应商"
+
+#. module: bq_itm_asset
+#: model:res.groups,comment:bq_itm_asset.group_itm_asset_clerk
+msgid "The user will be able to create and update all asset records."
+msgstr "用户可以创建更新所有资产记录。"
+
+#. module: bq_itm_asset
+#: model:res.groups,comment:bq_itm_asset.group_itm_asset_manager
+msgid "The user will be able to manage all records."
+msgstr "用户可以创建更新所有记录。"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,help:bq_itm_asset.field_bq_itm_asset_asset_image
+#: model:ir.model.fields,help:bq_itm_asset.field_bq_itm_asset_count_item_image
+msgid "This field holds the image used as picture for the asset."
+msgstr "资产照片"
+
+#. module: bq_itm_asset
+#: selection:bq.itm.asset.count.item,state:0
+msgid "Unknown"
+msgstr "未知"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_use
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_asset_view_search
+msgid "Use"
+msgstr "用途"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_attribute_value
+msgid "Value"
+msgstr "值"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_warranty
+msgid "Warranty"
+msgstr "保修期"
+
+#. module: bq_itm_asset
+#: code:addons/bq_itm_asset/models/models.py:93
+#, python-format
+msgid "You cannot delete a category containing assets."
+msgstr "不能删除包含资产的类别。"
+
+#. module: bq_itm_asset
+#: code:addons/bq_itm_asset/models/models.py:59
+#, python-format
+msgid "You cannot delete a location containing assets."
+msgstr "不能删除包含资产的位置。"
+
+#. module: bq_itm_asset
+#: model:res.groups,name:bq_itm_asset.group_itm_asset_clerk
+msgid "[Asset] Clerk"
+msgstr "[资产] 书记员"
+
+#. module: bq_itm_asset
+#: model:res.groups,name:bq_itm_asset.group_itm_asset_manager
+msgid "[Asset] Manager"
+msgstr "[资产] 管理员"
+

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="employee_bq_itm_asset_asset_report_template">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.html_container">
+                    <div class="article">
+                        <t t-set="company" t-value="res_company"/>
+
+                        <t t-translation="off">
+                            <div class="header">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % to_text(company.logo)" class="pull-left" style="max-height: 45px;"/>
+                                    </div>
+                                    <span style="float:right;position:relative;top:5px">
+                                        <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', o.bq_itm_asset_keeping_code, 300, 20)" style="width:300px;height:20px"/><br/>
+                                    </span>
+                                    <span style="float:right;position:relative;top:5px">
+                                        <span t-field="o.name"/> <span t-field="o.bq_itm_asset_keeping_code"/>
+                                    </span>
+                                </div>
+                                <div class="text-center">
+                                    <h2 style="font-weight:bold;display:inline-block;">IT资产保管确认单</h2>
+                                </div>
+                            </div>
+
+                            <div class="wrap">
+                                <div style="font-size:14px">
+                                    <ol style="margin:10px 0px 20px 20px;">
+                                        <li>IT设备及其存储的数据，是公司的重要资产，请您务必妥善看护、保持清洁，爱惜使用，轻拿轻放，不得自行拆卸；</li>
+                                        <li>IT设备不得自行移动，改变用途、网络、所属部门或保管人；如需变更，须在OA系统中提交申请，获准后方可进行；</li>
+                                        <li>您可联系IT资产管理员或登录公司ERP网站，查询您名下的IT资产清单；新增或移交IT资产后均需重新签署本确认单；</li>
+                                        <li>如果IT设备标签出现字迹模糊、脱落，或者设备发生损坏、遗失等情况，须立即通知IT资产管理员，否则由保管人负全部赔偿责任；</li>
+                                        <li>以上内容的违规处罚参见《IT设备管理规定》；如需帮助，请联系IT资产管理员；（IT热线：7890/86939890）</li>
+                                    </ol>
+                                    <p style="font-size:18px; padding-bottom:20px;">
+                                        <span style="font-weight:bold" t-field="o.complete_name"/>，您负责妥善保管的IT资产:
+                                    </p>
+                                    <table class="table table-bordered">
+                                        <tbody>
+                                            <t t-foreach="o.bq_itm_asset_asset_ids" t-as="f">
+                                                <tr>
+                                                    <td>
+                                                        <span t-field="f.asset_no"/>&#160;
+                                                        <span t-field="f.category_id"/>&#160;
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="f.brand_id"/><br/>
+                                                        <span t-field="f.model_no"/><br/>
+                                                        <span t-field="f.serial_no"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="f.use"/>&#160;<span t-field="f.network"/><br/>
+                                                        <span t-field="f.location_id"/>&#160;
+                                                        <span t-field="f.department_id"/>&#160;
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                        </tbody>
+                                    </table>
+                                    <div style="width:100%;overflow:hidden">
+                                        <div style="padding-top:10px;float:right">
+                                            <div style="padding-bottom:30px; padding-left:10px;">以上IT资产数据及资产实物，经保管人亲自确认无误。</div>
+                                            <div style="padding-bottom:10px; padding-left:10px;">保管人签字：<span style="padding-left:24px;">________________________</span> <span style="padding-left:20px;">确认日期：</span>________________________</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="footer">
+                                <div class="col-xs-3 text-left" style="margin-top:2px;"
+                                         t-esc="(datetime.datetime.now()+datetime.timedelta(hours=8)).strftime('%Y-%m-%d %H:%M:%S')" />
+                                <div class="text-right" style="border-top: 1px solid black;">
+                                    <ul class="list-inline">
+                                        <li>Version: 1.0</li>
+                                        <li>Page:</li>
+                                        <li><span class="page"/></li>
+                                        <li>/</li>
+                                        <li><span class="topage"/></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

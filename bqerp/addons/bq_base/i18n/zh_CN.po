@@ -1,0 +1,426 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* bq_base
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-17 08:32+0000\n"
+"PO-Revision-Date: 2016-11-17 08:32+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: base
+#: model:ir.module.category,name:base.module_category_bq
+msgid "BQ"
+msgstr "BQ"
+
+#. module: bq_base
+#: model:ir.ui.menu,name:bq_base.menu_bq_ec_root
+msgid "EC"
+msgstr "工程中心"
+
+#. module: bq_base
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_department_active
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee_active
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee_tag_active
+msgid "Active"
+msgstr "有效"
+
+#. module: bq_base
+#: model:ir.ui.view,arch_db:bq_base.user_create_wizard_view
+msgid "Cancel"
+msgstr "取消"
+
+#. module: bq_base
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_department_child_ids
+msgid "Child Departments"
+msgstr "子部门"
+
+#. module: bq_base
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_department_color
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee_tag_color
+msgid "Color"
+msgstr "颜色"
+
+#. module: bq_base
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_department_company_id
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee_company_id
+msgid "Company"
+msgstr "公司"
+
+#. module: bq_base
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee_complete_name
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_department_complete_name
+msgid "Complete Name"
+msgstr "完整名称"
+
+#. module: bq_base
+#: model:ir.ui.view,arch_db:bq_base.view_employee_form
+msgid "Contact Information"
+msgstr "联系信息"
+
+#. module: bq_base
+#: model:ir.ui.view,arch_db:bq_base.user_create_wizard_view
+msgid "Create"
+msgstr "创建"
+
+#. module: bq_base
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_department_create_uid
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee_create_uid
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee_tag_create_uid
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_user_create_wizard_create_uid
+msgid "Created by"
+msgstr "创建人"
+
+#. module: bq_base
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_department_create_date
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee_create_date
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee_tag_create_date
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_user_create_wizard_create_date
+msgid "Created on"
+msgstr "创建时间"
+
+#. module: bq_base
+#: model:ir.model,name:bq_base.model_bq_base_department
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee_department_id
+#: model:ir.ui.view,arch_db:bq_base.view_department_form
+#: model:ir.ui.view,arch_db:bq_base.view_employee_search
+msgid "Department"
+msgstr "部门"
+
+#. module: bq_base
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_department_name
+msgid "Department Name"
+msgstr "部门名称"
+
+#. module: bq_base
+#: model:ir.actions.act_window,name:bq_base.action_department
+#: model:ir.ui.menu,name:bq_base.menu_department
+#: model:ir.ui.view,arch_db:bq_base.view_department_tree
+msgid "Departments"
+msgstr "部门"
+
+#. module: bq_base
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_department_display_name
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee_display_name
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee_tag_display_name
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_user_create_wizard_display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: bq_base
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee_email
+msgid "Email"
+msgstr "Email"
+
+#. module: bq_base
+#: model:ir.model,name:bq_base.model_bq_base_employee
+#: model:ir.ui.view,arch_db:bq_base.view_employee_form
+msgid "Employee"
+msgstr "员工"
+
+#. module: bq_base
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee_employee_no
+#: model:ir.ui.view,arch_db:bq_base.view_employee_form
+msgid "Employee No."
+msgstr "工号"
+
+#. module: bq_base
+#: sql_constraint:bq.base.employee:0
+msgid "Employee No. already exists!"
+msgstr "工号已经存在！"
+
+#. module: bq_base
+#: model:ir.model,name:bq_base.model_bq_base_employee_tag
+msgid "Employee Tag"
+msgstr "员工标签"
+
+#. module: bq_base
+#: model:ir.actions.act_window,name:bq_base.action_employee_tag
+#: model:ir.ui.menu,name:bq_base.menu_employee_tag
+#: model:ir.ui.view,arch_db:bq_base.view_employee_tag_tree
+msgid "Employee Tags"
+msgstr "员工标签"
+
+#. module: bq_base
+#: model:ir.ui.view,arch_db:bq_base.view_employee_form
+msgid "Employee's Name"
+msgstr "员工姓名"
+
+#. module: bq_base
+#: model:ir.actions.act_window,name:bq_base.action_employee
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee_tag_employee_ids
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_user_create_wizard_employee_ids
+#: model:ir.ui.menu,name:bq_base.menu_employee
+#: model:ir.ui.view,arch_db:bq_base.view_employee_search
+#: model:ir.ui.view,arch_db:bq_base.view_employee_tree
+msgid "Employees"
+msgstr "员工"
+
+#. module: bq_base
+#: model:ir.ui.view,arch_db:bq_base.user_create_wizard_view
+msgid "Create New User"
+msgstr "创建新用户"
+
+#. module: bq_base
+#: model:ir.ui.view,arch_db:bq_base.view_employee_tag_form
+msgid "Empoloyee Tag"
+msgstr "员工标签"
+
+#. module: bq_base
+#: code:addons/bq_base/models/bq_base.py:87
+#, python-format
+msgid "Error! Cannot create recursive hierarchy of Employee(s)."
+msgstr "错误！部门创建循环引用的员工记录。"
+
+#. module: bq_base
+#: code:addons/bq_base/models/bq_base.py:154
+#, python-format
+msgid "Error! You cannot create recursive departments."
+msgstr "错误！部门创建循环引用的部门记录。"
+
+#. module: bq_base
+#: selection:bq.base.employee,gender:0
+msgid "Female"
+msgstr "女"
+
+#. module: bq_base
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee_gender
+msgid "Gender"
+msgstr "性别"
+
+#. module: bq_base
+#: model:ir.ui.view,arch_db:bq_base.view_employee_search
+msgid "Group By"
+msgstr "分组"
+
+#. module: bq_base
+#: model:ir.ui.menu,name:bq_base.menu_bq_root
+msgid "BQ"
+msgstr "BEIQ"
+
+#. module: bq_base
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_department_id
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee_id
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee_tag_id
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_user_create_wizard_id
+msgid "ID"
+msgstr "ID"
+
+#. module: bq_base
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_user_create_wizard_initial_password
+msgid "New User Initial Password"
+msgstr "新用户初始密码"
+
+#. module: bq_base
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_department___last_update
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee___last_update
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee_tag___last_update
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_user_create_wizard___last_update
+msgid "Last Modified on"
+msgstr "最后修改日"
+
+#. module: bq_base
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_department_write_uid
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee_tag_write_uid
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee_write_uid
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_user_create_wizard_write_uid
+msgid "Last Updated by"
+msgstr "最后更新人"
+
+#. module: bq_base
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_department_write_date
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee_tag_write_date
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee_write_date
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_user_create_wizard_write_date
+msgid "Last Updated on"
+msgstr "最后更新时间"
+
+#. module: bq_base
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee_last_login
+msgid "Latest Connection"
+msgstr "最后访问"
+
+#. module: bq_base
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee_login
+msgid "Login"
+msgstr "登录"
+
+#. module: bq_base
+#: selection:bq.base.employee,gender:0
+msgid "Male"
+msgstr "男"
+
+#. module: bq_base
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_department_manager_id
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee_parent_id
+#: model:res.groups,name:bq_base.group_manager
+msgid "Manager"
+msgstr "主管"
+
+#. module: bq_base
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee_image_medium
+msgid "Medium-sized photo"
+msgstr "中等尺寸照片"
+
+#. module: bq_base
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_department_member_ids
+msgid "Members"
+msgstr "成员"
+
+#. module: bq_base
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee_mobile_phone
+msgid "Mobile Phone"
+msgstr "手机"
+
+#. module: bq_base
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee_name
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee_tag_name
+msgid "Name"
+msgstr "名字"
+
+#. module: bq_base
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_department_note
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee_note
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee_tag_note
+msgid "Note"
+msgstr "备注"
+
+#. module: bq_base
+#: model:ir.ui.menu,name:bq_base.menu_organization
+#: model:ir.ui.view,arch_db:bq_base.view_employee_form
+msgid "Organization"
+msgstr "组织"
+
+#. module: bq_base
+#: selection:bq.base.employee,gender:0
+msgid "Other"
+msgstr "其它"
+
+#. module: bq_base
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee_other_department_ids
+msgid "Other Departments"
+msgstr "其它部门"
+
+#. module: bq_base
+#: model:ir.ui.view,arch_db:bq_base.view_department_form
+#: model:ir.ui.view,arch_db:bq_base.view_employee_form
+#: model:ir.ui.view,arch_db:bq_base.view_employee_tag_form
+msgid "Other Information ..."
+msgstr "其它信息 ..."
+
+#. module: bq_base
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_department_parent_id
+msgid "Parent Department"
+msgstr "父部门"
+
+#. module: bq_base
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee_phone
+msgid "Phone"
+msgstr "电话"
+
+#. module: bq_base
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee_image
+msgid "Photo"
+msgstr "照片"
+
+#. module: bq_base
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee_rfid
+msgid "RFID"
+msgstr "RFID"
+
+#. module: bq_base
+#: model:ir.ui.view,arch_db:bq_base.view_employee_form
+msgid "Related User"
+msgstr "关联用户"
+
+#. module: bq_base
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_department_sequence
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee_tag_sequence
+msgid "Sequence"
+msgstr "序号"
+
+#. module: bq_base
+#: model:ir.ui.menu,name:bq_base.menu_settings
+#: model:ir.ui.menu,name:bq_base.menu_bq_ec_settings
+msgid "Settings"
+msgstr "设置"
+
+#. module: bq_base
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee_image_small
+msgid "Small-sized photo"
+msgstr "小尺寸照片"
+
+#. module: bq_base
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee_child_ids
+msgid "Subordinates"
+msgstr "下属"
+
+#. module: bq_base
+#: sql_constraint:bq.base.employee.tag:0
+msgid "Tag name already exists!"
+msgstr "标签名称已经存在！"
+
+#. module: bq_base
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee_tag_ids
+msgid "Tags"
+msgstr "标签"
+
+#. module: bq_base
+#: model:res.groups,comment:bq_base.group_manager
+msgid "The user will be able to manage all records in bq_base module."
+msgstr "用户可以管理所有bq_base模块包含的数据。"
+
+#. module: bq_base
+#: model:ir.model.fields,help:bq_base.field_bq_base_employee_login
+msgid "Used to log into the system"
+msgstr "用户登录入系统"
+
+#. module: bq_base
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee_user_id
+msgid "User"
+msgstr "用户"
+
+#. module: bq_base
+#: model:ir.actions.act_window,name:bq_base.user_create_wizard_action
+#: model:ir.model,name:bq_base.model_bq_base_user_create_wizard
+#: model:ir.ui.view,arch_db:bq_base.user_create_wizard_view
+msgid "User Create Wizard"
+msgstr "用户创建向导"
+
+#. module: bq_base
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_employee_wechat_account
+msgid "WeChat Account"
+msgstr "微信帐号"
+
+#. module: bq_base
+#: sql_constraint:bq.base.employee:0
+msgid "WeChat Account already exists!"
+msgstr "微信帐号已经存在！"
+
+#. module: bq_base
+#: model:ir.ui.view,arch_db:bq_base.view_employee_form
+msgid "e.g. Part Time"
+msgstr "例如 兼职"
+
+#. module: bq_base
+#: model:ir.ui.view,arch_db:bq_base.user_create_wizard_view
+msgid "Add users to Groups"
+msgstr "添加用户到群组"
+
+#. module: bq_base
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_user_create_wizard_lang
+msgid "Language"
+msgstr "语言"
+
+#. module: bq_base
+#: model:ir.model.fields,field_description:bq_base.field_bq_base_user_create_wizard_tz
+msgid "Timezone"
+msgstr "时区"
+

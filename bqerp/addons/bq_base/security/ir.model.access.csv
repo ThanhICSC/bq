@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+employee_tag_base_group_user,employee_tag base.group_user,model_bq_base_employee_tag,base.group_user,1,0,0,0
+employee_base_group_user,employee base.group_user,model_bq_base_employee,base.group_user,1,0,0,0
+department_base_group_user,department base.group_user,model_bq_base_department,base.group_user,1,0,0,0
+employee_tag_bq_base_group_manager,employee_tag bq_base.group_manager,model_bq_base_employee_tag,bq_base.group_manager,1,1,1,1
+employee_bq_base_group_manager,employee bq_base.group_manager,model_bq_base_employee,bq_base.group_manager,1,1,1,1
+department_bq_base_group_manager,department bq_base.group_manager,model_bq_base_department,bq_base.group_manager,1,1,1,1
+
+res_users_bq_base_group_manager,base.res_users bq_base.group_manager,auth_crypt.model_res_users,bq_base.group_manager,1,1,1,1

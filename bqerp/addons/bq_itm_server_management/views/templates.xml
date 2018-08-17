@@ -1,0 +1,73 @@
+<openerp>
+    <data>
+         <template id="server_list">
+             <t t-call="web.layout">
+                 <t t-set="body_classname" t-value="'container'"/>
+                 <t t-set="head">
+                     <link rel="stylesheet" href="/web/static/lib/bootstrap/css/bootstrap.css"></link>
+                     <link rel="stylesheet" href="/bq_itm_server_management/static/src/css/main.css"></link>
+                 </t>
+
+                 <table id="server-list" class="table table-bordered">
+                     <thead>
+                         <tr>
+                             <th>Name</th>
+                             <th>IP Address</th>
+                             <th>Model</th>
+                             <th>Guest Name</th>
+                             <th>Guest IP Address</th>
+                             <th>State</th>
+                             <th>Description</th>
+                         </tr>
+                     </thead>
+                     <tbody>
+                         <t t-foreach="servers" t-as="server">
+                             <t t-set="host" t-value="server['host']"></t>
+                             <t t-set="guests" t-value="server['guests']"></t>
+                             <t t-if="len(guests)>0">
+                                 <t t-set="guest_count" t-value="len(guests)"></t>
+                                 <t t-set="guest" t-value="guests[0]"></t>
+                                 <tr>
+                                     <td t-esc="host.name" t-att-rowspan="guest_count" class="align-middle"></td>
+                                     <td t-esc="host.ip_addrs" t-att-rowspan="guest_count" class="align-middle"></td>
+                                     <td t-esc="host.model_id.name" t-att-rowspan="guest_count" class="align-middle"></td>
+                                     <td t-esc="guests[0].name"></td>
+                                     <td t-esc="guests[0].ip_addrs"></td>
+                                     <td>
+                                         <span t-field="guests[0].state"></span>
+                                     </td>
+                                     <td t-esc="guests[0].description"></td>
+                                 </tr>
+                                 <tr t-foreach="guests[1:]" t-as="guest">
+                                     <td t-esc="guest.name"></td>
+                                     <td t-esc="guest.ip_addrs"></td>
+                                     <td>
+                                         <span t-field="guest.state"/>
+                                     </td>
+                                      <td >
+                                         <t t-esc="guest.description or ''"></t>
+                                     </td>
+                                 </tr>
+                             </t>
+                             <t t-else="">
+                                 <tr>
+                                     <td t-esc="host.name"></td>
+                                     <td t-esc="host.ip_addrs"></td>
+                                     <td t-esc="host.model_id.name"></td>
+                                     <td></td>
+                                     <td></td>
+                                     <td>
+                                         <span t-field="host.state"></span>
+                                     </td>
+                                     <td >
+                                         <t t-esc="host.description or ''"></t>
+                                     </td>
+                                 </tr>
+                             </t>
+                         </t>
+                     </tbody>
+                 </table>
+             </t>
+         </template>
+    </data>
+</openerp>

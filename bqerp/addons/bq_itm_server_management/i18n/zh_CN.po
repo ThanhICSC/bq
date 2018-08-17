@@ -1,0 +1,217 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* bq_itm_server_management
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-02-20 06:11+0000\n"
+"PO-Revision-Date: 2017-02-20 06:11+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: bq_itm_server_management
+#: selection:bq.itm.server,state:0
+msgid "Active"
+msgstr "活跃"
+
+#. module: bq_itm_server_management
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_operating_system_category
+msgid "Category"
+msgstr "类别"
+
+#. module: bq_itm_server_management
+#: selection:bq.itm.server,state:0
+msgid "Closed"
+msgstr "关闭"
+
+#. module: bq_itm_server_management
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_operating_system_create_uid
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_server_create_uid
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_server_model_create_uid
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_server_network_interface_create_uid
+msgid "Created by"
+msgstr "创建人"
+
+#. module: bq_itm_server_management
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_operating_system_create_date
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_server_create_date
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_server_model_create_date
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_server_network_interface_create_date
+msgid "Created on"
+msgstr "创建时间"
+
+#. module: bq_itm_server_management
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_server_description
+#: model:ir.ui.view,arch_db:bq_itm_server_management.server_list
+msgid "Description"
+msgstr "说明"
+
+#. module: bq_itm_server_management
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_operating_system_display_name
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_server_display_name
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_server_model_display_name
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_server_network_interface_display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: bq_itm_server_management
+#: selection:bq.itm.server,type:0
+msgid "Guest"
+msgstr "客户机"
+
+#. module: bq_itm_server_management
+#: model:ir.ui.view,arch_db:bq_itm_server_management.server_list
+msgid "Guest IP Address"
+msgstr "客户机IP地址"
+
+#. module: bq_itm_server_management
+#: model:ir.ui.view,arch_db:bq_itm_server_management.server_list
+msgid "Guest Name"
+msgstr "客户机名称"
+
+#. module: bq_itm_server_management
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_server_guest_ids
+msgid "Guests"
+msgstr "客户机"
+
+#. module: bq_itm_server_management
+#: model:res.groups,comment:bq_itm_server_management.group_bq_itm_server_management_admin
+msgid "BQ ITM server management system administrator."
+msgstr "BQ ITM server management system administrator."
+
+#. module: bq_itm_server_management
+#: selection:bq.itm.server,type:0
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_server_host_id
+msgid "Host"
+msgstr "宿主机"
+
+#. module: bq_itm_server_management
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_operating_system_id
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_server_id
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_server_model_id
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_server_network_interface_id
+msgid "ID"
+msgstr "ID"
+
+#. module: bq_itm_server_management
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_server_network_interface_ip_addr
+#: model:ir.ui.view,arch_db:bq_itm_server_management.server_list
+msgid "IP Address"
+msgstr "IP地址"
+
+#. module: bq_itm_server_management
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_server_ip_addrs
+msgid "IP Addresses"
+msgstr "IP地址"
+
+#. module: bq_itm_server_management
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_server_interface_ids
+msgid "Interfaces"
+msgstr "接口"
+
+#. module: bq_itm_server_management
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_operating_system___last_update
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_server___last_update
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_server_model___last_update
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_server_network_interface___last_update
+msgid "Last Modified on"
+msgstr "最后修改日"
+
+#. module: bq_itm_server_management
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_operating_system_write_uid
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_server_model_write_uid
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_server_network_interface_write_uid
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_server_write_uid
+msgid "Last Updated by"
+msgstr "最后更新人"
+
+#. module: bq_itm_server_management
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_operating_system_write_date
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_server_model_write_date
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_server_network_interface_write_date
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_server_write_date
+msgid "Last Updated on"
+msgstr "最后更新时间"
+
+#. module: bq_itm_server_management
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_server_model_id_2575
+#: model:ir.ui.view,arch_db:bq_itm_server_management.server_list
+msgid "Model"
+msgstr "型号"
+
+#. module: bq_itm_server_management
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_operating_system_name
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_server_model_name
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_server_name
+#: model:ir.ui.view,arch_db:bq_itm_server_management.server_list
+msgid "Name"
+msgstr "名字"
+
+#. module: bq_itm_server_management
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_server_os_id
+msgid "OS"
+msgstr "操作系统"
+
+#. module: bq_itm_server_management
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_server_network_interface_priority
+msgid "Priority"
+msgstr "优先级"
+
+#. module: bq_itm_server_management
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_server_network_interface_server_id
+msgid "Server"
+msgstr "服务器"
+
+#. module: bq_itm_server_management
+#: model:ir.ui.menu,name:bq_itm_server_management.bq_itm_server_management_menu
+msgid "Server Management"
+msgstr "服务器管理"
+
+#. module: bq_itm_server_management
+#: model:ir.actions.act_window,name:bq_itm_server_management.server_action
+#: model:ir.ui.menu,name:bq_itm_server_management.bq_itm_server_management_server_menu
+msgid "Servers"
+msgstr "服务器"
+
+#. module: bq_itm_server_management
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_server_state
+#: model:ir.ui.view,arch_db:bq_itm_server_management.server_list
+msgid "State"
+msgstr "省/ 州"
+
+#. module: bq_itm_server_management
+#: model:ir.model.fields,field_description:bq_itm_server_management.field_bq_itm_server_type
+msgid "Type"
+msgstr "类型"
+
+#. module: bq_itm_server_management
+#: model:res.groups,name:bq_itm_server_management.group_bq_itm_server_management_admin
+msgid "[SRV] Administrator"
+msgstr "[SRV] 管理员"
+
+#. module: bq_itm_server_management
+#: model:ir.model,name:bq_itm_server_management.model_bq_itm_operating_system
+msgid "bq.itm.operating.system"
+msgstr "bq.itm.operating.system"
+
+#. module: bq_itm_server_management
+#: model:ir.model,name:bq_itm_server_management.model_bq_itm_server
+msgid "bq.itm.server"
+msgstr "bq.itm.server"
+
+#. module: bq_itm_server_management
+#: model:ir.model,name:bq_itm_server_management.model_bq_itm_server_model
+msgid "bq.itm.server.model"
+msgstr "bq.itm.server.model"
+
+#. module: bq_itm_server_management
+#: model:ir.model,name:bq_itm_server_management.model_bq_itm_server_network_interface
+msgid "bq.itm.server.network.interface"
+msgstr "bq.itm.server.network.interface"
+

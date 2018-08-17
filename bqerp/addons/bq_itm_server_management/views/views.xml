@@ -1,0 +1,178 @@
+<openerp>
+  <data>
+
+      <record id="operating_system_view_form" model="ir.ui.view">
+          <field name="name">Operating System Form</field>
+          <field name="model">bq.itm.operating.system</field>
+          <field name="arch" type="xml">
+              <form>
+                  <group>
+                      <group>
+                          <field name="name"></field>
+                          <field name="category"></field>
+                      </group>
+                      <group>
+                      </group>
+                  </group>
+                   <group>
+                      <group>
+                        <field name="create_date" readonly="1"/>
+                        <field name="create_uid" readonly="1"/>
+                      </group>
+                      <group>
+                            <field name="write_date" readonly="1"/>
+                            <field name="write_uid" readonly="1"/>
+                        </group>
+                  </group>
+              </form>
+          </field>
+      </record>
+
+      <record id="network_interface_view_form" model="ir.ui.view">
+          <field name="name">Server Network Interface Form</field>
+          <field name="model">bq.itm.server.network.interface</field>
+          <field name="arch" type="xml">
+              <form>
+                  <group>
+                      <group>
+                          <field name="ip_addr"></field>
+                          <field name="server_id"></field>
+                      </group>
+                      <group>
+                          <field name="priority"></field>
+                      </group>
+                  </group>
+                  <group>
+                      <group>
+                        <field name="create_date" readonly="1"/>
+                        <field name="create_uid" readonly="1"/>
+                      </group>
+                      <group>
+                            <field name="write_date" readonly="1"/>
+                            <field name="write_uid" readonly="1"/>
+                        </group>
+                  </group>
+              </form>
+          </field>
+      </record>
+
+      <record id="server_view_list" model="ir.ui.view">
+          <field name="name">Server List</field>
+          <field name="model">bq.itm.server</field>
+          <field name="arch" type="xml">
+              <tree>
+                  <field name="name"></field>
+                  <field name="model_id"></field>
+                  <field name="os_id"></field>
+                  <field name="ip_addrs"></field>
+                  <field name="type"></field>
+                  <field name="host_id"></field>
+                  <field name="state"></field>
+                  <field name="description"></field>
+              </tree>
+          </field>
+      </record>
+
+      <record id="server_view_form" model="ir.ui.view">
+          <field name="name">Server Form</field>
+          <field name="model">bq.itm.server</field>
+          <field name="arch" type="xml">
+              <form>
+                  <group>
+                      <group>
+                          <field name="name"></field>
+                          <field name="model_id" attrs="{'invisible': [('type', '!=', 'host')]}"></field>
+                          <field name="os_id"></field>
+                          <field name="description"></field>
+                      </group>
+                      <group>
+                          <field name="type"></field>
+                          <field name="host_id" attrs="{'invisible': [('type', '=', 'host')]}"></field>
+                          <field name="state"></field>
+                      </group>
+                  </group>
+                  <group>
+                      <field name="interface_ids" context="{'server_id': id}"></field>
+                      <field name="guest_ids" context="{'host_id': id}"
+                             attrs="{'invisible': [('type', '!=', 'host')]}"></field>
+                  </group>
+                  <group>
+                      <group>
+                        <field name="create_date" readonly="1"/>
+                        <field name="create_uid" readonly="1"/>
+                      </group>
+                      <group>
+                            <field name="write_date" readonly="1"/>
+                            <field name="write_uid" readonly="1"/>
+                        </group>
+                  </group>
+              </form>
+          </field>
+      </record>
+
+      <record id="server_view_search" model="ir.ui.view">
+          <field name="name">Server Search</field>
+          <field name="model">bq.itm.server</field>
+          <field name="arch" type="xml">
+              <search>
+                  <field name="name"></field>
+                  <field name="model_id"></field>
+                  <field name="os_id"></field>
+                  <field name="interface_ids"></field>
+                  <field name="description"></field>
+              </search>
+          </field>
+      </record>
+
+    <record id="server_action" model="ir.actions.act_window">
+        <field name="name">Servers</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">bq.itm.server</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            <!-- Add Text Here -->
+          </p><p>
+            <!-- More details about what a user can do with this object will be OK -->
+          </p>
+        </field>
+    </record>
+
+    <menuitem id="bq_itm_server_management_menu" name="Server Management" parent="bq_itm_base.bq_itm_menu"
+        sequence="50"
+    ></menuitem>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="bq_itm_server_management_server_menu" name="Servers" parent="bq_itm_server_management_menu"
+              action="server_action" sequence="10"/>
+
+
+      <record id="network_interface_view_form" model="ir.ui.view">
+          <field name="name">Network Interface</field>
+          <field name="model">bq.itm.server.network.interface</field>
+          <field name="arch" type="xml">
+              <form>
+                  <group>
+                      <group>
+                          <field name="ip_addr"></field>
+                          <field name="server_id"></field>
+                      </group>
+                      <group>
+                          <field name="priority"></field>
+                      </group>
+                  </group>
+                  <group>
+                      <group>
+                        <field name="create_date" readonly="1"/>
+                        <field name="create_uid" readonly="1"/>
+                      </group>
+                      <group>
+                            <field name="write_date" readonly="1"/>
+                            <field name="write_uid" readonly="1"/>
+                        </group>
+                  </group>
+              </form>
+          </field>
+      </record>
+  </data>
+</openerp>

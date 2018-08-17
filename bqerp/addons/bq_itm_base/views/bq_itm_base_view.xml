@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem name="IT" id="bq_itm_menu" web_icon="bq_itm_base,static/description/icon.png" sequence="85"/>
+        <menuitem id="setting_menu" name="Settings" parent="bq_itm_menu" sequence="99999"/>
+    </data>
+</odoo>
+

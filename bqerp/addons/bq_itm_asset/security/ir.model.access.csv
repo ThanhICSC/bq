@@ -1,0 +1,18 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+asset_base_group_user,asset base.group_user,model_bq_itm_asset_asset,base.group_user,1,0,0,0
+category_base_group_user,category base.group_user,model_bq_itm_asset_category,base.group_user,1,0,0,0
+brand_base_group_user,brand base.group_user,model_bq_itm_asset_brand,base.group_user,1,0,0,0
+attribute_base_group_user,attribute base.group_user,model_bq_itm_asset_attribute,base.group_user,1,0,0,0
+location_base_group_user,location base.group_user,model_bq_itm_asset_location,base.group_user,1,0,0,0
+count_base_group_user,count base.group_user,model_bq_itm_asset_count,base.group_user,1,0,0,0
+count_item_base_group_user,count_item base.group_user,model_bq_itm_asset_count_item,base.group_user,1,0,0,0
+asset_group_itm_asset_manager,asset group_itm_asset_manager,model_bq_itm_asset_asset,bq_itm_asset.group_itm_asset_manager,1,1,1,1
+category_group_itm_asset_manager,category group_itm_asset_manager,model_bq_itm_asset_category,bq_itm_asset.group_itm_asset_manager,1,1,1,1
+brand_group_itm_asset_manager,brand group_itm_asset_manager,model_bq_itm_asset_brand,bq_itm_asset.group_itm_asset_manager,1,1,1,1
+attribute_group_itm_asset_manager,attribute group_itm_asset_manager,model_bq_itm_asset_attribute,bq_itm_asset.group_itm_asset_manager,1,1,1,1
+location_group_itm_asset_manager,location group_itm_asset_manager,model_bq_itm_asset_location,bq_itm_asset.group_itm_asset_manager,1,1,1,1
+count_group_itm_asset_manager,count group_itm_asset_manager,model_bq_itm_asset_count,bq_itm_asset.group_itm_asset_manager,1,1,1,1
+count_item_group_itm_asset_manager,count_item group_itm_asset_manager,model_bq_itm_asset_count_item,bq_itm_asset.group_itm_asset_manager,1,1,1,1
+asset_group_itm_asset_clerk,asset group_itm_asset_clerk,model_bq_itm_asset_asset,bq_itm_asset.group_itm_asset_clerk,1,1,1,0
+count_group_itm_asset_clerk,count group_itm_asset_clerk,model_bq_itm_asset_count,bq_itm_asset.group_itm_asset_clerk,1,1,1,0
+count_item_group_itm_asset_clerk,count_item group_itm_asset_clerk,model_bq_itm_asset_count_item,bq_itm_asset.group_itm_asset_clerk,1,1,1,1

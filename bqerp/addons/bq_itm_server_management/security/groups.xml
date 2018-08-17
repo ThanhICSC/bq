@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openerp>
+  <data noupdate="0">
+    <record id="group_bq_itm_server_management_admin" model="res.groups">
+        <field name="name">[SRV] Administrator</field>
+        <field name="category_id" ref="base.module_category_bq_itm"/>
+        <field name="comment">BQ ITM server management system administrator.</field>
+        <field name="users" eval="[(4, ref('base.user_root'))]"/>
+    </record>
+  </data>
+</openerp>
