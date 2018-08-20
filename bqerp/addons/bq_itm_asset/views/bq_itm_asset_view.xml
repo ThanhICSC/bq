@@ -63,10 +63,32 @@
                                         <field name="brand_id"/>
                                         <field name="model_no"/>
                                         <field name="serial_no"/>
-                                        <field name="attribute_ids" widget="many2many_tags" domain="[('category_id','=', category_id)]"/>
+                                        <field name="original_warranty_years"/>
+                                        <field name="original_warranty_start_date"/>
+                                        <field name="original_warranty_end_date"/>
                                     </group>
                                     <group>
+                                        <field name="ip"/>
+                                        <field name="pin"/>
+                                        <field name="attribute_ids" widget="many2many_tags" domain="[('category_id','=', category_id)]"/>
+                                        <field name="supplier_warranty_years"/>
+                                        <field name="supplier_warranty_start_date"/>
+                                        <field name="supplier_warranty_end_date"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="PO Information">
+                                <group>
+                                    <group>
+                                        <field name="supplier_id"/>
+                                        <field name="supplier_number"/>
+                                        <field name="buy_date"/>
                                         <field name="po_no"/>
+                                        <field name="renewal_method_id"></field>
+                                    </group>
+                                    <group>
+                                        <field name="contract_no"/>
+                                        <field name="contact_complete_name"/>
                                         <field name="cost"/>
                                         <field name="warranty"/>
                                     </group>
@@ -468,6 +490,126 @@
         <menuitem id="asset_location_menu" name="Asset Locations"
                   parent="asset_management_setting_menu" action="asset_location_action"
                   sequence="4"/>
+
+        <record id="asset_supplier_view_tree" model="ir.ui.view">
+            <field name="name">asset.supplier.tree</field>
+            <field name="model">bq.itm.asset.supplier</field>
+            <field name="arch" type="xml">
+                <tree string="Asset suppliers">
+                    <field name='sequence' widget='handle'/>
+                    <field name="name"/>
+                    <field name="supplier_number"></field>
+                    <field name="contact_complete_name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="asset_supplier_view_form" model="ir.ui.view">
+            <field name="name">asset.supplier.form</field>
+            <field name="model">bq.itm.asset.supplier</field>
+            <field name="arch" type="xml">
+                <form string="Asset supplier">
+                    <sheet>
+                        <group name="group_top">
+                            <group>
+                                <field name="name"/>
+                                <field name="supplier_number"></field>
+                                <field name="sequence"/>
+                            </group>
+                            <group>
+                                <field name="contact"/>
+                                <field name="contact_number"/>
+                            </group>
+                        </group>
+                        <group name="group_log_access">
+                            <group>
+                                <field name="create_date" readonly="1"/>
+                                <field name="create_uid" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="write_date" readonly="1"/>
+                                <field name="write_uid" readonly="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="asset_supplier_view_search" model="ir.ui.view">
+            <field name="name">asset.supplier.search</field>
+            <field name="model">bq.itm.asset.supplier</field>
+            <field name="arch" type="xml">
+                <search string="suppliers">
+                    <field name="name"/>
+                    <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
+                </search>
+             </field>
+        </record>
+        <record id="asset_supplier_action" model="ir.actions.act_window">
+            <field name="name">Asset suppliers</field>
+            <field name="res_model">bq.itm.asset.supplier</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="asset_supplier_menu" name="Asset suppliers"
+                  parent="asset_management_setting_menu" action="asset_supplier_action"
+                  sequence="5"/>
+
+        <record id="asset_renewal_method_view_tree" model="ir.ui.view">
+            <field name="name">asset.renewal.method.tree</field>
+            <field name="model">bq.itm.asset.renewal.method</field>
+            <field name="arch" type="xml">
+                <tree string="Asset Renewal Method">
+                    <field name='sequence' widget='handle'/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="asset_renewal_method_view_form" model="ir.ui.view">
+            <field name="name">asset.renewal.method.form</field>
+            <field name="model">bq.itm.asset.renewal.method</field>
+            <field name="arch" type="xml">
+                <form string="Asset Renewal Method">
+                    <sheet>
+                        <group name="group_top">
+                            <group>
+                                <field name="name"/>
+                                <field name="sequence"/>
+                            </group>
+                            <group>
+                                <field name="active"/>
+                            </group>
+                        </group>
+                        <group name="group_log_access">
+                            <group>
+                                <field name="create_date" readonly="1"/>
+                                <field name="create_uid" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="write_date" readonly="1"/>
+                                <field name="write_uid" readonly="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="asset_renewal_method_view_search" model="ir.ui.view">
+            <field name="name">asset.renewal.method.search</field>
+            <field name="model">bq.itm.asset.renewal.method</field>
+            <field name="arch" type="xml">
+                <search string="Renewal Method">
+                    <field name="name"/>
+                    <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
+                </search>
+             </field>
+        </record>
+        <record id="asset_renewal_method_action" model="ir.actions.act_window">
+            <field name="name">Asset Renewal Method</field>
+            <field name="res_model">bq.itm.asset.renewal.method</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="asset_renewal_method_menu" name="Asset Renewal Method"
+                  parent="asset_management_setting_menu" action="asset_renewal_method_action"
+                  sequence="6"/>
 
         <record id="asset_count_view_tree" model="ir.ui.view">
             <field name="name">asset.count.tree</field>

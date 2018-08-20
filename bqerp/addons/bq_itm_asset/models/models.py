@@ -4,6 +4,8 @@ import hashlib
 
 from odoo import models, fields, api, tools, exceptions, _
 from odoo.exceptions import UserError, ValidationError
+import datetime
+import dateutil
 
 LOCATION_COMPLETE_NAME_SEPARATOR = ' / '
 
@@ -139,6 +141,45 @@ class Brand(models.Model):
     ]
 
 
+class RenewalMethod(models.Model):
+    _name = 'bq.itm.asset.renewal.method'
+    _description = 'Renewal Method'
+    _order = 'sequence, name'
+
+    name = fields.Char('Name', required=True)
+    sequence = fields.Integer(string="Sequence")
+    active = fields.Boolean('Active?', default=True)
+
+    _sql_constraints = [
+        ('name_unique', 'unique(name)',
+         "Another method already exists with this name!"),
+    ]
+
+
+class Supplier(models.Model):
+    _name = 'bq.itm.asset.supplier'
+    _description = 'Supplier'
+    _order = 'sequence, name'
+
+    name = fields.Char('Name', required=True)
+    contact = fields.Char('Contact', required=True)
+    contact_number = fields.Char('Contact Number', required=True)
+    supplier_number = fields.Char('Supplier Number', required=True)
+    contact_complete_name = fields.Char(compute='_compute_complete_name', string='Complete Name', store=True)
+    sequence = fields.Integer(string="Sequence")
+    active = fields.Boolean('Active?', default=True)
+
+    _sql_constraints = [
+        ('name_unique', 'unique(name)',
+         "Another supplier already exists with this name!"),
+    ]
+
+    @api.depends('contact', 'contact_number')
+    def _compute_complete_name(self):
+        names = [self.contact, self.contact_number]
+        self.complete_name = ' / '.join(filter(None, names))
+
+
 class Asset(models.Model):
     _name = 'bq.itm.asset.asset'
     _inherit = ['mail.thread']
@@ -188,6 +229,49 @@ class Asset(models.Model):
                                     ('sold', 'Sold'), ('other', 'Other')], string='Cancel Type',
                                    track_visibility='onchange')
     cancel_description = fields.Text('Cancel Description', track_visibility='onchange')
+
+    ip = fields.Char('IP', track_visibility='onchange')
+    pin = fields.Char('P/N', track_visibility='onchange')
+    buy_date = fields.Date('Buy Date', track_visibility='onchange')
+    original_warranty_years = fields.Integer('Original Warranty Years', track_visibility='onchange', default=2)
+    original_warranty_start_date = fields.Date('Original Warranty Start Date', track_visibility='onchange')
+    original_warranty_end_date = fields.Date('Original Warranty End Date',
+                                             compute='_compute_original_warranty_end_date', store=True)
+    supplier_warranty_years = fields.Integer('Supplier Warranty Years', track_visibility='onchange', default=2)
+    supplier_warranty_start_date = fields.Date('Supplier Warranty Start Date', track_visibility='onchange')
+    supplier_warranty_end_date = fields.Date('Supplier Warranty End Date',
+                                             compute='_compute_supplier_warranty_end_date', store=True)
+    supplier_id = fields.Many2one('bq.itm.asset.supplier', string='Supplier', ondelete='restrict', index=True,
+                               track_visibility='onchange')
+    contract_no = fields.Char('Contract No', track_visibility='onchange')
+    supplier_number = fields.Char('Contact Number', related='supplier_id.supplier_number', store=True)
+    contact_complete_name = fields.Char('Contact Complete Name', compute='_compute_contact_complete_name',
+                                        store=True)
+    renewal_method_id = fields.Many2one('bq.itm.asset.renewal.method', string='Renewal Method', ondelete='restrict',
+                                        index=True, track_visibility='onchange')
+
+    @api.depends('supplier_id')
+    def _compute_contact_complete_name(self):
+        for asset in self:
+            if asset.supplier_id:
+                self.contact_complete_name = '{0} / {1}'.format(asset.supplier_id.contact
+                                                                ,asset.supplier_id.contact_number)
+
+    @api.depends('original_warranty_years', 'original_warranty_start_date')
+    def _compute_original_warranty_end_date(self):
+        for asset in self:
+            if asset.original_warranty_years > 0 and asset.original_warranty_start_date:
+                asset.original_warranty_end_date = \
+                    datetime.datetime.strptime(asset.original_warranty_start_date,'%Y-%m-%d') + \
+                    dateutil.relativedelta.relativedelta(years=asset.original_warranty_years)
+
+    @api.depends('supplier_warranty_years', 'supplier_warranty_start_date')
+    def _compute_supplier_warranty_end_date(self):
+        for asset in self:
+            if asset.supplier_warranty_years > 0 and asset.supplier_warranty_start_date:
+                asset.supplier_warranty_end_date = \
+                    datetime.datetime.strptime(asset.supplier_warranty_start_date, '%Y-%m-%d') + \
+                    dateutil.relativedelta.relativedelta(years=asset.supplier_warranty_years)
 
     @api.one
     @api.constrains('asset_no')
