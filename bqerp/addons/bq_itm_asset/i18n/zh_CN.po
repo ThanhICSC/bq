@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-20 08:16+0000\n"
-"PO-Revision-Date: 2018-08-20 08:16+0000\n"
+"POT-Creation-Date: 2018-08-21 02:37+0000\n"
+"PO-Revision-Date: 2018-08-21 02:37+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -23,6 +23,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_location_active
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_renewal_method_active
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_supplier_active
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_supplier_contact_active
 msgid "Active?"
 msgstr "有效？"
 
@@ -63,6 +64,7 @@ msgstr "重复的供应商名称项!"
 #: model:ir.ui.view,arch_db:bq_itm_asset.asset_category_view_search
 #: model:ir.ui.view,arch_db:bq_itm_asset.asset_location_view_search
 #: model:ir.ui.view,arch_db:bq_itm_asset.asset_renewal_method_view_search
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_supplier_contact_view_search
 #: model:ir.ui.view,arch_db:bq_itm_asset.asset_supplier_view_search
 msgid "Archived"
 msgstr "归档"
@@ -169,7 +171,7 @@ msgid "Asset No."
 msgstr "资产编号"
 
 #. module: bq_itm_asset
-#: code:addons/bq_itm_asset/models/models.py:280
+#: code:addons/bq_itm_asset/models/models.py:317
 #, python-format
 msgid "Asset Number must have 9 chars!"
 msgstr "资产编号必须为9个字符！"
@@ -198,6 +200,16 @@ msgstr "资产设置"
 #: model:ir.ui.view,arch_db:bq_itm_asset.asset_supplier_view_form
 msgid "Asset supplier"
 msgstr "供应商"
+
+#. module: bq_itm_asset
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_supplier_contact_view_form
+msgid "Asset supplier contact"
+msgstr "联系人"
+
+#. module: bq_itm_asset
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_supplier_contact_view_tree
+msgid "Asset supplier contacts"
+msgstr "联系人"
 
 #. module: bq_itm_asset
 #: model:ir.actions.act_window,name:bq_itm_asset.asset_supplier_action
@@ -308,7 +320,7 @@ msgstr "公司"
 
 #. module: bq_itm_asset
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_location_complete_name
-#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_supplier_contact_complete_name
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_supplier_contact_complete_name_2312
 msgid "Complete Name"
 msgstr "完整名称"
 
@@ -318,20 +330,21 @@ msgid "Confirm"
 msgstr "确认"
 
 #. module: bq_itm_asset
-#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_supplier_contact
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_contact_id
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_supplier_contact_ids
 msgid "Contact"
 msgstr "联系人"
 
 #. module: bq_itm_asset
-#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_contact_complete_name
-msgid "Contact Complete Name"
-msgstr "联系人完整名称"
-
-#. module: bq_itm_asset
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_supplier_number
-#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_supplier_contact_number
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_supplier_contact_contact_number
 msgid "Contact Number"
 msgstr "联系人电话"
+
+#. module: bq_itm_asset
+#: model:ir.model,name:bq_itm_asset.model_bq_itm_asset_supplier_contact
+msgid "Contact of supplier"
+msgstr "供应商联系人"
 
 #. module: bq_itm_asset
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_contract_no
@@ -396,6 +409,7 @@ msgstr "创建"
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_keeping_confirm_wizard_create_uid
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_location_create_uid
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_renewal_method_create_uid
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_supplier_contact_create_uid
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_supplier_create_uid
 msgid "Created by"
 msgstr "创建人"
@@ -411,6 +425,7 @@ msgstr "创建人"
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_keeping_confirm_wizard_create_date
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_location_create_date
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_renewal_method_create_date
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_supplier_contact_create_date
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_supplier_create_date
 msgid "Created on"
 msgstr "创建时间"
@@ -448,6 +463,7 @@ msgstr "说明"
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_keeping_confirm_wizard_display_name
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_location_display_name
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_renewal_method_display_name
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_supplier_contact_display_name
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_supplier_display_name
 msgid "Display Name"
 msgstr "显示名称"
@@ -468,8 +484,8 @@ msgid "Employee"
 msgstr "员工"
 
 #. module: bq_itm_asset
-#: code:addons/bq_itm_asset/models/models.py:457
-#: code:addons/bq_itm_asset/models/models.py:468
+#: code:addons/bq_itm_asset/models/models.py:494
+#: code:addons/bq_itm_asset/models/models.py:505
 #, python-format
 msgid "Employee No %s doesn't exist"
 msgstr "工号 %s 不存在"
@@ -522,6 +538,7 @@ msgstr "分组"
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_keeping_confirm_wizard_id
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_location_id
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_renewal_method_id
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_supplier_contact_id
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_supplier_id
 msgid "ID"
 msgstr "ID"
@@ -596,7 +613,7 @@ msgid "Keeping Code"
 msgstr "资产保管编码"
 
 #. module: bq_itm_asset
-#: code:addons/bq_itm_asset/models/models.py:446
+#: code:addons/bq_itm_asset/models/models.py:483
 #: model:ir.actions.act_window,name:bq_itm_asset.keeping_confirm_wizard_action
 #: model:ir.model,name:bq_itm_asset.model_bq_itm_asset_keeping_confirm_wizard
 #: model:ir.ui.view,arch_db:bq_itm_asset.keeping_confirm_wizard_view
@@ -622,6 +639,7 @@ msgstr "需确认资产保管"
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_location___last_update
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_renewal_method___last_update
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_supplier___last_update
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_supplier_contact___last_update
 msgid "Last Modified on"
 msgstr "最后修改时间"
 
@@ -636,6 +654,7 @@ msgstr "最后修改时间"
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_keeping_confirm_wizard_write_uid
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_location_write_uid
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_renewal_method_write_uid
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_supplier_contact_write_uid
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_supplier_write_uid
 msgid "Last Updated by"
 msgstr "最后更新者"
@@ -651,6 +670,7 @@ msgstr "最后更新者"
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_keeping_confirm_wizard_write_date
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_location_write_date
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_renewal_method_write_date
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_supplier_contact_write_date
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_supplier_write_date
 msgid "Last Updated on"
 msgstr "最后更新时间"
@@ -713,6 +733,7 @@ msgstr "我的资产"
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_category_name
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_location_name
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_renewal_method_name
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_supplier_contact_name
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_supplier_name
 msgid "Name"
 msgstr "名称"
@@ -751,6 +772,11 @@ msgstr "开启"
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_original_warranty_end_date
 msgid "Original Warranty End Date"
 msgstr "原厂质保结束日期"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_original_warranty_number
+msgid "Original Warranty Number"
+msgstr "原厂保修电话"
 
 #. module: bq_itm_asset
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_original_warranty_start_date
@@ -847,6 +873,7 @@ msgstr "退役"
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_category_sequence
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_location_sequence
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_renewal_method_sequence
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_supplier_contact_sequence
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_supplier_sequence
 msgid "Sequence"
 msgstr "序列"
@@ -897,6 +924,7 @@ msgstr "主题"
 #: selection:bq.itm.asset.asset,repair_place:0
 #: model:ir.model,name:bq_itm_asset.model_bq_itm_asset_supplier
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_supplier_id
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_supplier_contact_supplier_id
 msgid "Supplier"
 msgstr "供应商"
 
@@ -980,6 +1008,7 @@ msgid "[Asset] Manager"
 msgstr "[资产] 管理员"
 
 #. module: bq_itm_asset
+#: model:ir.ui.view,arch_db:bq_itm_asset.asset_supplier_contact_view_search
 #: model:ir.ui.view,arch_db:bq_itm_asset.asset_supplier_view_search
 msgid "suppliers"
 msgstr "供应商"

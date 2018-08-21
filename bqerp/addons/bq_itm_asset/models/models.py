@@ -162,21 +162,47 @@ class Supplier(models.Model):
     _order = 'sequence, name'
 
     name = fields.Char('Name', required=True)
-    contact = fields.Char('Contact', required=True)
-    contact_number = fields.Char('Contact Number', required=True)
+    # contact = fields.Char('Contact', required=True)
+    # contact_number = fields.Char('Contact Number', required=True)
     supplier_number = fields.Char('Supplier Number', required=True)
-    contact_complete_name = fields.Char(compute='_compute_complete_name', string='Complete Name', store=True)
+    # contact_complete_name = fields.Char(compute='_compute_complete_name', string='Complete Name', store=True)
     sequence = fields.Integer(string="Sequence")
     active = fields.Boolean('Active?', default=True)
+    contact_ids = fields.One2many(comodel_name="bq.itm.asset.supplier.contact",
+                                  inverse_name="supplier_id", string="Contact", required=False, )
 
     _sql_constraints = [
         ('name_unique', 'unique(name)',
          "Another supplier already exists with this name!"),
     ]
 
-    @api.depends('contact', 'contact_number')
+
+class SupplierContact(models.Model):
+    _name = 'bq.itm.asset.supplier.contact'
+    _rec_name = 'complete_name'
+    _description = 'Contact of supplier'
+
+    name = fields.Char('Name', required=True)
+    supplier_id = fields.Many2one(comodel_name="bq.itm.asset.supplier", string="Supplier", required=False, )
+    contact_number = fields.Char('Contact Number', required=True)
+    complete_name = fields.Char(compute='_compute_complete_name', string='Complete Name', store=True)
+
+    sequence = fields.Integer(string="Sequence")
+    active = fields.Boolean('Active?', default=True)
+
+    @api.model
+    def default_get(self, fields_list):
+        defaults = super(SupplierContact, self).default_get(fields_list)
+        supplier_id = self.env.context.get('supplier_id')
+        if supplier_id:
+            defaults.update({
+                'supplier_id': supplier_id
+            })
+        return defaults
+
+    @api.depends('name', 'contact_number')
     def _compute_complete_name(self):
-        names = [self.contact, self.contact_number]
+        names = [self.name, self.contact_number]
         self.complete_name = ' / '.join(filter(None, names))
 
 
@@ -237,6 +263,7 @@ class Asset(models.Model):
     original_warranty_start_date = fields.Date('Original Warranty Start Date', track_visibility='onchange')
     original_warranty_end_date = fields.Date('Original Warranty End Date',
                                              compute='_compute_original_warranty_end_date', store=True)
+    original_warranty_number = fields.Char('Original Warranty Number')
     supplier_warranty_years = fields.Integer('Supplier Warranty Years', track_visibility='onchange', default=2)
     supplier_warranty_start_date = fields.Date('Supplier Warranty Start Date', track_visibility='onchange')
     supplier_warranty_end_date = fields.Date('Supplier Warranty End Date',
@@ -244,18 +271,28 @@ class Asset(models.Model):
     supplier_id = fields.Many2one('bq.itm.asset.supplier', string='Supplier', ondelete='restrict', index=True,
                                track_visibility='onchange')
     contract_no = fields.Char('Contract No', track_visibility='onchange')
-    supplier_number = fields.Char('Contact Number', related='supplier_id.supplier_number', store=True)
-    contact_complete_name = fields.Char('Contact Complete Name', compute='_compute_contact_complete_name',
-                                        store=True)
+    # supplier_number = fields.Char('Contact Number', related='supplier_id.supplier_number', store=True)
+    supplier_number = fields.Char('Contact Number')
+    # contact_complete_name = fields.Char('Contact Complete Name', compute='_compute_contact_complete_name',
+    #                                     store=True)
+    contact_id = fields.Many2one('bq.itm.asset.supplier.contact', string='Contact',
+                                 domain=lambda self: [('supplier_id', '=', self.supplier_id), ]
+                                 )
     renewal_method_id = fields.Many2one('bq.itm.asset.renewal.method', string='Renewal Method', ondelete='restrict',
                                         index=True, track_visibility='onchange')
 
-    @api.depends('supplier_id')
+    @api.onchange('supplier_id')
     def _compute_contact_complete_name(self):
-        for asset in self:
-            if asset.supplier_id:
-                self.contact_complete_name = '{0} / {1}'.format(asset.supplier_id.contact
-                                                                ,asset.supplier_id.contact_number)
+        value = dict()
+        self.contact_id = False
+        if self.supplier_id and self.supplier_id is not None:
+            self.supplier_number = self.supplier_id.supplier_number
+            domain = [('supplier_id', '=', self.supplier_id.id)]
+        else:
+            domain = [('supplier_id', '=', None)]
+        value['domain'] = dict()
+        value['domain']['contact_id'] = domain
+        return value
 
     @api.depends('original_warranty_years', 'original_warranty_start_date')
     def _compute_original_warranty_end_date(self):
