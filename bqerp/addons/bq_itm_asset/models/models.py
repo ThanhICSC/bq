@@ -202,8 +202,10 @@ class SupplierContact(models.Model):
 
     @api.depends('name', 'contact_number')
     def _compute_complete_name(self):
-        names = [self.name, self.contact_number]
-        self.complete_name = ' / '.join(filter(None, names))
+        for contact in self:
+            if contact and contact is not None:
+                names = [contact.name, contact.contact_number]
+                contact.complete_name = ' / '.join(filter(None, names))
 
 
 class Asset(models.Model):
