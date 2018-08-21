@@ -87,7 +87,7 @@ class Employee(models.Model):
                 raise ValidationError(_('Error! Cannot create recursive hierarchy of Employee(s).'))
 
     @api.one
-    @api.depends('name', 'employee_no')
+    @api.depends('name', 'mobile_phone')
     def _compute_complete_name(self):
         names = [self.name, self.mobile_phone]
         self.complete_name = ' / '.join(filter(None, names))
