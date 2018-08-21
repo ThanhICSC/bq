@@ -1012,3 +1012,8 @@ msgstr "[资产] 管理员"
 #: model:ir.ui.view,arch_db:bq_itm_asset.asset_supplier_view_search
 msgid "suppliers"
 msgstr "供应商"
+
+#. module: bq_itm_asset
+#: selection:bq.itm.asset.asset,network:0
+msgid "Office"
+msgstr "办公网"

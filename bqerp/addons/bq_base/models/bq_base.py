@@ -40,7 +40,7 @@ class Employee(models.Model):
 
     name = fields.Char(required=True, string='Name')
     employee_no = fields.Char(required=True, string='Employee No.')
-    complete_name = fields.Char(compute='_compute_complete_name', string='Complete Name', store=True)
+    complete_name = fields.Char(compute='_compute_complete_name', string='Complete Name')
     company_id = fields.Many2one('res.company', string='Company', index=True,
                                  default=lambda self: self.env.user.company_id)
     user_id = fields.Many2one('res.users', string='User')
@@ -89,7 +89,7 @@ class Employee(models.Model):
     @api.one
     @api.depends('name', 'employee_no')
     def _compute_complete_name(self):
-        names = [self.employee_no, self.name]
+        names = [self.name, self.mobile_phone]
         self.complete_name = ' / '.join(filter(None, names))
 
     @api.model

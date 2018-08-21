@@ -234,7 +234,7 @@ class Asset(models.Model):
          ('national confidential', 'National Confidential')],
         string='Use', track_visibility='onchange')
     network = fields.Selection(
-        [('internal', 'Internal'), ('external', 'External'), ('production', 'Production'), ('equipment', 'Equipment')],
+        [('office', 'Office'), ('production', 'Production'), ('equipment', 'Equipment')],
         string='Network', track_visibility='onchange')
     mac_addresses = fields.Text('Mac Addresses')
     cost = fields.Float('Cost', track_visibility='onchange')
