@@ -21,7 +21,7 @@
 {
     'name': 'Web PDF Report Preview & Print',
     'summary': 'Preview & Print PDF report in your browser.',
-    'description':"""Web PDF Report Preview & Print
+    'description': """Web PDF Report Preview & Print
 
 Preview & Print PDF report in your browser.
 
@@ -31,8 +31,6 @@ Preview & Print PDF report in your browser.
 
 
 If your brower prevented pop-up window, you should allow it.
-
-功能：PDF 报表预览
 
     """,
     'author': "wangbuke@gmail.com",
