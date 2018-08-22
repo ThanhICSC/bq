@@ -19,10 +19,9 @@
 ##############################################################################
 
 {
-    "name": "Web PDF Report Preview & Print",
-    'version': '1.0',
-    'category': 'Web',
-    'description': """Web PDF Report Preview & Print
+    'name': 'Web PDF Report Preview & Print',
+    'summary': 'Preview & Print PDF report in your browser.',
+    'description':"""Web PDF Report Preview & Print
 
 Preview & Print PDF report in your browser.
 
@@ -36,14 +35,17 @@ If your brower prevented pop-up window, you should allow it.
 功能：PDF 报表预览
 
     """,
-    'author': 'wangbuke@gmail.com',
-    'website': 'http://buke.github.io',
-    'license': 'AGPL-3',
+    'author': "wangbuke@gmail.com",
+    'category': 'Web',
+    'version': '1.0.0',
     'depends': ['web'],
     'data': [
         'views/web_pdf_preview.xml',
     ],
+    'installable': True,
+    'application': False,
+    'auto_install': False,
 
+    'license': 'OPL-1',
 }
 
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
