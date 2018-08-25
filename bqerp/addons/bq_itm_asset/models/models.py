@@ -164,7 +164,7 @@ class Supplier(models.Model):
     name = fields.Char('Name', required=True)
     # contact = fields.Char('Contact', required=True)
     # contact_number = fields.Char('Contact Number', required=True)
-    supplier_number = fields.Char('Supplier Number', required=True)
+    supplier_number = fields.Char('Supplier Number')
     # contact_complete_name = fields.Char(compute='_compute_complete_name', string='Complete Name', store=True)
     sequence = fields.Integer(string="Sequence")
     active = fields.Boolean('Active?', default=True)
@@ -262,11 +262,13 @@ class Asset(models.Model):
     pin = fields.Char('P/N', track_visibility='onchange')
     buy_date = fields.Date('Buy Date', track_visibility='onchange')
     original_warranty_years = fields.Integer('Original Warranty Years', track_visibility='onchange', default=2)
+    original_warranty_months = fields.Integer('Original Warranty Months', track_visibility='onchange', default=36)
     original_warranty_start_date = fields.Date('Original Warranty Start Date', track_visibility='onchange')
     original_warranty_end_date = fields.Date('Original Warranty End Date',
                                              compute='_compute_original_warranty_end_date', store=True)
     original_warranty_number = fields.Char('Original Warranty Number')
     supplier_warranty_years = fields.Integer('Supplier Warranty Years', track_visibility='onchange', default=2)
+    supplier_warranty_months = fields.Integer('Supplier Warranty Month', track_visibility='onchange', default=36)
     supplier_warranty_start_date = fields.Date('Supplier Warranty Start Date', track_visibility='onchange')
     supplier_warranty_end_date = fields.Date('Supplier Warranty End Date',
                                              compute='_compute_supplier_warranty_end_date', store=True)
@@ -296,21 +298,21 @@ class Asset(models.Model):
         value['domain']['contact_id'] = domain
         return value
 
-    @api.depends('original_warranty_years', 'original_warranty_start_date')
+    @api.depends('original_warranty_months', 'original_warranty_start_date')
     def _compute_original_warranty_end_date(self):
         for asset in self:
-            if asset.original_warranty_years > 0 and asset.original_warranty_start_date:
+            if asset.original_warranty_months > 0 and asset.original_warranty_start_date:
                 asset.original_warranty_end_date = \
                     datetime.datetime.strptime(asset.original_warranty_start_date,'%Y-%m-%d') + \
-                    dateutil.relativedelta.relativedelta(years=asset.original_warranty_years)
+                    dateutil.relativedelta.relativedelta(months=asset.original_warranty_months)
 
-    @api.depends('supplier_warranty_years', 'supplier_warranty_start_date')
+    @api.depends('supplier_warranty_months', 'supplier_warranty_start_date')
     def _compute_supplier_warranty_end_date(self):
         for asset in self:
-            if asset.supplier_warranty_years > 0 and asset.supplier_warranty_start_date:
+            if asset.supplier_warranty_months > 0 and asset.supplier_warranty_start_date:
                 asset.supplier_warranty_end_date = \
                     datetime.datetime.strptime(asset.supplier_warranty_start_date, '%Y-%m-%d') + \
-                    dateutil.relativedelta.relativedelta(years=asset.supplier_warranty_years)
+                    dateutil.relativedelta.relativedelta(months=asset.supplier_warranty_months)
 
     @api.one
     @api.constrains('asset_no')

@@ -203,7 +203,7 @@ msgstr "分组"
 #. module: bq_base
 #: model:ir.ui.menu,name:bq_base.menu_bq_root
 msgid "BQ"
-msgstr "BEIQ"
+msgstr "BAIC"
 
 #. module: bq_base
 #: model:ir.model.fields,field_description:bq_base.field_bq_base_department_id

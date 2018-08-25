@@ -63,7 +63,7 @@
                                         <field name="brand_id"/>
                                         <field name="model_no"/>
                                         <field name="serial_no"/>
-                                        <field name="original_warranty_years"/>
+                                        <field name="original_warranty_months"/>
                                         <field name="original_warranty_start_date"/>
                                         <field name="original_warranty_end_date"/>
                                         <field name="original_warranty_number"/>
@@ -72,7 +72,7 @@
                                         <field name="ip"/>
                                         <field name="pin"/>
                                         <field name="attribute_ids" widget="many2many_tags" domain="[('category_id','=', category_id)]"/>
-                                        <field name="supplier_warranty_years"/>
+                                        <field name="supplier_warranty_months"/>
                                         <field name="supplier_warranty_start_date"/>
                                         <field name="supplier_warranty_end_date"/>
                                     </group>

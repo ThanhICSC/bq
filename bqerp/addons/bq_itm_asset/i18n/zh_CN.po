@@ -1017,3 +1017,13 @@ msgstr "供应商"
 #: selection:bq.itm.asset.asset,network:0
 msgid "Office"
 msgstr "办公网"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_original_warranty_months
+msgid "Original Warranty Months"
+msgstr "原厂质保期限（月）"
+
+#. module: bq_itm_asset
+#: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_supplier_warranty_months
+msgid "Supplier Warranty Month"
+msgstr "供应商质保期限（月）"
