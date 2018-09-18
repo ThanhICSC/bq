@@ -89,7 +89,8 @@
                                     </group>
                                     <group>
                                         <field name="contract_no"/>
-                                        <field name="contact_id"/>
+                                        <field name="contact_id"
+                                               domain="[('supplier_id', '=', supplier_id)]"/>
                                         <field name="cost"/>
                                         <field name="warranty"/>
                                     </group>

@@ -339,7 +339,7 @@ msgstr "联系人"
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_asset_supplier_number
 #: model:ir.model.fields,field_description:bq_itm_asset.field_bq_itm_asset_supplier_contact_contact_number
 msgid "Contact Number"
-msgstr "联系人电话"
+msgstr "供应商联系电话"
 
 #. module: bq_itm_asset
 #: model:ir.model,name:bq_itm_asset.model_bq_itm_asset_supplier_contact

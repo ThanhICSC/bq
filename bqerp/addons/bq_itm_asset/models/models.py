@@ -280,10 +280,16 @@ class Asset(models.Model):
     # contact_complete_name = fields.Char('Contact Complete Name', compute='_compute_contact_complete_name',
     #                                     store=True)
     contact_id = fields.Many2one('bq.itm.asset.supplier.contact', string='Contact',
-                                 domain=lambda self: [('supplier_id', '=', self.supplier_id), ]
+                                 # domain=lambda self: self._get_possible_model_domain(),
+                                 # default=lambda self: self.supplier_id.contact_ids[0],
+                                 # domain=lambda self: [('supplier_id', '=', self.supplier_id.id)]
                                  )
     renewal_method_id = fields.Many2one('bq.itm.asset.renewal.method', string='Renewal Method', ondelete='restrict',
                                         index=True, track_visibility='onchange')
+
+    def _get_possible_model_domain(self):
+        sid = self.supplier_id.id
+        return [('supplier_id', '=', self.supplier_id.id)]
 
     @api.onchange('supplier_id')
     def _compute_contact_complete_name(self):
